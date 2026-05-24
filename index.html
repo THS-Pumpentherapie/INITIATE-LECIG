@@ -694,10 +694,326 @@
 <!-- PAGE: T-PORT                                    -->
 <!-- ═══════════════════════════════════════════════ -->
 <div class="page" id="page-tport">
-  <div class="placeholder">
-    <p class="page-label">Studie</p>
-    <h1>T-Port</h1>
-    <p>Diese Seite wird in Kürze mit Inhalten befüllt.</p>
+  <div style="max-width:960px;margin:0 auto;padding:3.5rem 2rem 5rem;">
+
+    <!-- HEADER -->
+    <p class="page-label">Zugangssystem · Substudie</p>
+    <h1 style="font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);line-height:1.2;margin-bottom:.8rem;">
+      T-port® <em style="color:var(--accent);font-style:italic;">Enteral Access System</em>
+    </h1>
+    <p style="font-size:.95rem;color:var(--text-mid);line-height:1.75;max-width:720px;margin-bottom:2rem;">
+      Im Rahmen von INITIATE-LECIG wird der T-port® erstmals in Deutschland und Österreich als
+      alternatives Zugangssystem zur konventionellen PEG-J-Sonde eingesetzt — bei einem Teil der
+      Patienten im Rahmen einer begleitenden Substudie.
+    </p>
+    <div class="divider"></div>
+
+    <!-- ══ WAS IST DER T-PORT? ══════════════════════ -->
+    <h2 style="font-family:'DM Serif Display',serif;font-size:1.55rem;margin-bottom:1.2rem;">Was ist der T-port®?</h2>
+
+    <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:2.5rem;align-items:start;margin-bottom:2.5rem;">
+      <div style="font-size:.93rem;line-height:1.8;color:var(--text-mid);">
+        <p>
+          Der T-port® ist ein subkutan implantiertes enterales Zugangssystem der Firma
+          <strong>Transcutan AB</strong> (Göteborg, Schweden). Er wird in das Fettgewebe unterhalb der Haut
+          über dem Magen implantiert und ermöglicht über einen stabilen Ankermechanismus
+          die Platzierung einer jejunalen Sonde — ohne offenen Hautkanal wie bei der konventionellen PEG.
+        </p>
+        <p style="margin-top:.9rem;">
+          Das System besteht aus drei Komponenten: der subkutan verankerten
+          <strong>T-port® Base</strong> (Titan), dem aufschraubbaren <strong>T-port® Top</strong>
+          (Edelstahl, Luer-Lock oder ENFit) und dem <strong>enteralen Polyurethan-Katheter</strong>,
+          der über Magen und Jejunum in den Dünndarm führt.
+        </p>
+        <p style="margin-top:.9rem;">
+          Der Verlängerungsschlauch kann zwischen den Infusionen vollständig abgenommen werden —
+          dann ist lediglich das unauffällige T-port® Top sichtbar.
+        </p>
+      </div>
+
+      <!-- SVG: anatomical cross-section T-port -->
+      <div style="background:var(--accent-light);border-radius:14px;padding:1.5rem;display:flex;flex-direction:column;align-items:center;gap:.8rem;">
+        <svg viewBox="0 0 280 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:280px;">
+          <!-- Skin layer -->
+          <rect x="10" y="80" width="260" height="18" rx="4" fill="#f4d7c3" opacity=".9"/>
+          <text x="140" y="93" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8.5" fill="#8b5e3c">Haut</text>
+
+          <!-- Subcutaneous fat layer -->
+          <rect x="10" y="98" width="260" height="40" rx="0" fill="#fdecd8" opacity=".7"/>
+          <text x="22" y="122" font-family="DM Sans,sans-serif" font-size="7.5" fill="#c0906a">Subkutangewebe</text>
+
+          <!-- Stomach wall -->
+          <rect x="10" y="138" width="260" height="22" rx="0" fill="#d8e8c8" opacity=".8"/>
+          <text x="140" y="153" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="#4a7a3a">Magenwand</text>
+
+          <!-- Stomach lumen -->
+          <rect x="10" y="160" width="260" height="50" rx="0" fill="#eef7e8" opacity=".7"/>
+          <text x="140" y="185" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="#4a7a3a">Magenlumen → Jejunum</text>
+
+          <!-- T-port Top (above skin) -->
+          <rect x="110" y="48" width="60" height="32" rx="8" fill="#4a4a4a"/>
+          <rect x="118" y="54" width="44" height="20" rx="5" fill="#888"/>
+          <text x="140" y="68" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7.5" fill="white" font-weight="600">T-port® Top</text>
+          <text x="140" y="42" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7" fill="#4a4a4a">(Edelstahl)</text>
+
+          <!-- T-port Base (subcutaneous) -->
+          <ellipse cx="140" cy="115" rx="30" ry="12" fill="#b0c8e0" stroke="#3a6b8a" stroke-width="1.5"/>
+          <text x="140" y="119" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7.5" fill="#284d65" font-weight="600">T-port® Base (Ti)</text>
+
+          <!-- Vertical connector -->
+          <line x1="140" y1="80" x2="140" y2="103" stroke="#555" stroke-width="3" stroke-linecap="round"/>
+          <line x1="140" y1="127" x2="140" y2="138" stroke="#3a6b8a" stroke-width="2.5" stroke-dasharray="3 2"/>
+
+          <!-- Catheter going right into jejunum -->
+          <path d="M140,150 Q170,158 220,165 Q240,168 255,172" fill="none" stroke="#e08040" stroke-width="3" stroke-linecap="round"/>
+          <text x="220" y="180" font-family="DM Sans,sans-serif" font-size="7.5" fill="#b06020">Katheter →</text>
+          <text x="220" y="190" font-family="DM Sans,sans-serif" font-size="7" fill="#b06020">Jejunum</text>
+
+          <!-- Labels with lines -->
+          <line x1="172" y1="115" x2="200" y2="105" stroke="#3a6b8a" stroke-width=".8"/>
+          <text x="202" y="103" font-family="DM Sans,sans-serif" font-size="7" fill="#3a6b8a">Titan-Flansch</text>
+          <text x="202" y="113" font-family="DM Sans,sans-serif" font-size="7" fill="#3a6b8a">subkutan</text>
+        </svg>
+        <p style="font-size:.72rem;color:var(--text-soft);text-align:center;font-style:italic;">
+          Schematischer Querschnitt des T-port®-Systems.<br/>
+          <span style="font-size:.68rem;">Quelle: Transcutan AB</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- ══ T-PORT vs. PEG VERGLEICH ══════════════════ -->
+    <div style="height:1px;background:var(--border);margin:0 0 2.2rem;"></div>
+    <h2 style="font-family:'DM Serif Display',serif;font-size:1.55rem;margin-bottom:1.2rem;">T-port® versus PEG-J</h2>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem;">
+      <!-- PEG-J -->
+      <div style="background:#fdf6f0;border:1px solid #e8cdb8;border-radius:12px;padding:1.5rem;">
+        <p style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#a05a2c;margin-bottom:.9rem;">Konventionelle PEG-J</p>
+        <ul style="font-size:.86rem;line-height:1.8;color:var(--text-mid);list-style:none;display:flex;flex-direction:column;gap:.3rem;">
+          <li>⚬ &nbsp;Offener Hautkanal (Fistel) zum Magen</li>
+          <li>⚬ &nbsp;Gastroskopie zur Implantation erforderlich</li>
+          <li>⚬ &nbsp;Dauerhaft sichtbarer, externer Schlauch</li>
+          <li>⚬ &nbsp;Häufigere jejunale Katheterdislokationen</li>
+          <li>⚬ &nbsp;Höhere Stoma-Komplikationsrate</li>
+          <li>⚬ &nbsp;Austausch erfordert erneute Endoskopie</li>
+        </ul>
+      </div>
+      <!-- T-Port -->
+      <div style="background:#f0f7f0;border:1px solid #b8d8b8;border-radius:12px;padding:1.5rem;">
+        <p style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#2e7d5e;margin-bottom:.9rem;">T-port® Enteral Access System</p>
+        <ul style="font-size:.86rem;line-height:1.8;color:var(--text-mid);list-style:none;display:flex;flex-direction:column;gap:.3rem;">
+          <li>✓ &nbsp;Subkutane Base — kein offener Kanal</li>
+          <li>✓ &nbsp;Implantation nur unter Röntgenkontrolle (lokal)</li>
+          <li>✓ &nbsp;Schlauch abnehmbar, wenn nicht in Gebrauch</li>
+          <li>✓ &nbsp;Stabilere Verankerung, seltenere Dislokation</li>
+          <li>✓ &nbsp;Geringere Stomakompl.- &amp; Leckagerate</li>
+          <li>✓ &nbsp;Katheterwechsel ohne Gastroskopie möglich</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Lebensdauer + Austausch cards -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2.5rem;">
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.3rem;text-align:center;">
+        <p style="font-family:'DM Serif Display',serif;font-size:2rem;color:var(--accent-dark);line-height:1;">∅ 3,6 J.</p>
+        <p style="font-size:.78rem;color:var(--text-soft);margin-top:.4rem;">Voraussichtliche Lebensdauer<br/>(Spanne: 1–5 Jahre)</p>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.3rem;text-align:center;">
+        <p style="font-family:'DM Serif Display',serif;font-size:2rem;color:var(--accent-dark);line-height:1;">1–2 h</p>
+        <p style="font-size:.78rem;color:var(--text-soft);margin-top:.4rem;">Implantationsdauer<br/>(Lokalanästhesie, wach)</p>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.3rem;text-align:center;">
+        <p style="font-family:'DM Serif Display',serif;font-size:2rem;color:var(--accent-dark);line-height:1;">✓</p>
+        <p style="font-size:.78rem;color:var(--text-soft);margin-top:.4rem;">Katheterwechsel schmerzfrei<br/>ohne Lokal­anästhesie</p>
+      </div>
+    </div>
+
+    <!-- ══ IMPLANTATION ═══════════════════════════════ -->
+    <div style="height:1px;background:var(--border);margin:0 0 2.2rem;"></div>
+    <h2 style="font-family:'DM Serif Display',serif;font-size:1.55rem;margin-bottom:1.2rem;">Implantation &amp; Nachsorge</h2>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:2rem;">
+      <!-- Implantation steps -->
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.6rem;">
+        <p style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;">Ablauf der Implantation</p>
+        <div style="display:flex;flex-direction:column;gap:.9rem;">
+          <div style="display:flex;gap:1rem;align-items:flex-start;">
+            <div style="width:26px;height:26px;border-radius:50%;background:var(--accent);color:white;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0;">1</div>
+            <p style="font-size:.85rem;line-height:1.6;color:var(--text-mid);">Nüchtern 6 h; Kontrastmittel 8–12 h vorher; Antibiotikaprophylaxe intraoperativ</p>
+          </div>
+          <div style="display:flex;gap:1rem;align-items:flex-start;">
+            <div style="width:26px;height:26px;border-radius:50%;background:var(--accent);color:white;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0;">2</div>
+            <p style="font-size:.85rem;line-height:1.6;color:var(--text-mid);">Lokalanästhesie; Implantation unter Röntgenkontrolle (keine Gastroskopie)</p>
+          </div>
+          <div style="display:flex;gap:1rem;align-items:flex-start;">
+            <div style="width:26px;height:26px;border-radius:50%;background:var(--accent);color:white;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0;">3</div>
+            <p style="font-size:.85rem;line-height:1.6;color:var(--text-mid);">Trinken ab ca. 6 h postop; Mahlzeit ab nächstem Morgen; LECIG-Infusion sobald Station freigegeben</p>
+          </div>
+          <div style="display:flex;gap:1rem;align-items:flex-start;">
+            <div style="width:26px;height:26px;border-radius:50%;background:var(--accent);color:white;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0;">4</div>
+            <p style="font-size:.85rem;line-height:1.6;color:var(--text-mid);">Wundkontrolle nach 3 Wochen; Fadenentfernung; vollständige Einheilung nach ca. 3 Monaten</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Healing timeline SVG -->
+      <div style="background:var(--accent-light);border-radius:12px;padding:1.5rem;display:flex;flex-direction:column;align-items:center;gap:.8rem;">
+        <p style="font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:.2rem;width:100%;">Heilungsverlauf nach Implantation</p>
+        <svg viewBox="0 0 280 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:280px;">
+          <!-- Timeline bar -->
+          <rect x="20" y="68" width="245" height="8" rx="4" fill="#c8dae6"/>
+          <!-- Phase segments -->
+          <rect x="20" y="68" width="55" height="8" rx="4" fill="#c0392b" opacity=".7"/>
+          <rect x="75" y="68" width="55" height="8" rx="0" fill="#e67e22" opacity=".7"/>
+          <rect x="130" y="68" width="70" height="8" rx="0" fill="#2e7d5e" opacity=".7"/>
+          <rect x="200" y="68" width="65" height="8" rx="4" fill="#3a6b8a" opacity=".7"/>
+
+          <!-- Tick marks + labels -->
+          <line x1="20"  y1="76" x2="20"  y2="88" stroke="#555" stroke-width="1"/>
+          <line x1="75"  y1="76" x2="75"  y2="88" stroke="#555" stroke-width="1"/>
+          <line x1="130" y1="76" x2="130" y2="88" stroke="#555" stroke-width="1"/>
+          <line x1="200" y1="76" x2="200" y2="88" stroke="#555" stroke-width="1"/>
+          <line x1="265" y1="76" x2="265" y2="88" stroke="#555" stroke-width="1"/>
+
+          <text x="20"  y="98" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="#555">OP</text>
+          <text x="75"  y="98" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="#555">Wo 3</text>
+          <text x="130" y="98" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="#555">Mo 1</text>
+          <text x="200" y="98" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="#555">Mo 3</text>
+          <text x="265" y="98" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="#555">→</text>
+
+          <!-- Phase descriptions above -->
+          <text x="47"  y="58" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7.5" fill="#c0392b" font-weight="600">Heilung</text>
+          <text x="47"  y="67" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7" fill="#c0392b">Verband</text>
+          <text x="102" y="58" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7.5" fill="#e67e22" font-weight="600">Stabilisierung</text>
+          <text x="165" y="58" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7.5" fill="#2e7d5e" font-weight="600">Einheilung</text>
+          <text x="232" y="58" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7.5" fill="#3a6b8a" font-weight="600">Langzeitphase</text>
+
+          <!-- Icons below -->
+          <text x="47"  y="120" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9">🩹</text>
+          <text x="102" y="120" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9">🔒</text>
+          <text x="165" y="120" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9">🚿</text>
+          <text x="232" y="120" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9">✅</text>
+          <text x="47"  y="135" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7" fill="#555">Verband trocken</text>
+          <text x="102" y="135" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7" fill="#555">Fäden entfernt</text>
+          <text x="165" y="135" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7" fill="#555">Duschen mögl.</text>
+          <text x="232" y="135" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7" fill="#555">Fest verankert</text>
+        </svg>
+        <p style="font-size:.7rem;color:var(--text-soft);text-align:center;font-style:italic;">Abb.: Heilungsphasen nach T-port®-Implantation. Quelle: Transcutan AB</p>
+      </div>
+    </div>
+
+    <!-- ══ TÄGLICHE PFLEGE ════════════════════════════ -->
+    <div style="height:1px;background:var(--border);margin:0 0 2.2rem;"></div>
+    <h2 style="font-family:'DM Serif Display',serif;font-size:1.55rem;margin-bottom:1.2rem;">Tägliche Stomapflege</h2>
+
+    <p style="font-size:.92rem;line-height:1.75;color:var(--text-mid);max-width:720px;margin-bottom:1.5rem;">
+      Regelmäßige Pflege ist entscheidend für die Lebensdauer des T-port® und zur Vermeidung von
+      Stomainfektionen. Morgens und abends reinigen, stets gründlich trocknen. Den Katheter nach
+      Gebrauch mit 20–40 ml Trinkwasser spülen.
+    </p>
+
+    <!-- 4-step cleaning visual -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2rem;">
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;">
+        <div style="width:44px;height:44px;border-radius:50%;background:var(--accent-light);margin:0 auto .8rem;display:flex;align-items:center;justify-content:center;">
+          <svg width="22" height="22" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" viewBox="0 0 24 24">
+            <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z"/><path d="M12 8v4l3 3"/>
+          </svg>
+        </div>
+        <p style="font-size:.78rem;font-weight:700;color:var(--accent-dark);margin-bottom:.3rem;">1. Befeuchten</p>
+        <p style="font-size:.75rem;color:var(--text-soft);">Bereich mit Wasser anfeuchten</p>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;">
+        <div style="width:44px;height:44px;border-radius:50%;background:var(--accent-light);margin:0 auto .8rem;display:flex;align-items:center;justify-content:center;">
+          <svg width="22" height="22" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/>
+          </svg>
+        </div>
+        <p style="font-size:.78rem;font-weight:700;color:var(--accent-dark);margin-bottom:.3rem;">2. Reinigen</p>
+        <p style="font-size:.75rem;color:var(--text-soft);">Ablagerungen mit Tupfer / weicher Bürste entfernen</p>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;">
+        <div style="width:44px;height:44px;border-radius:50%;background:var(--accent-light);margin:0 auto .8rem;display:flex;align-items:center;justify-content:center;">
+          <svg width="22" height="22" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" viewBox="0 0 24 24">
+            <path d="M12 22C6.5 22 2 17.5 2 12S6.5 2 12 2s10 4.5 10 10-4.5 10-10 10z"/><path d="M8 12h8M12 8v8"/>
+          </svg>
+        </div>
+        <p style="font-size:.78rem;font-weight:700;color:var(--accent-dark);margin-bottom:.3rem;">3. Spülen</p>
+        <p style="font-size:.75rem;color:var(--text-soft);">Mit Wasser nachspülen</p>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;">
+        <div style="width:44px;height:44px;border-radius:50%;background:var(--accent-light);margin:0 auto .8rem;display:flex;align-items:center;justify-content:center;">
+          <svg width="22" height="22" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" viewBox="0 0 24 24">
+            <path d="M3 12s4-8 9-8 9 8 9 8-4 8-9 8-9-8-9-8z"/><circle cx="12" cy="12" r="3"/>
+          </svg>
+        </div>
+        <p style="font-size:.78rem;font-weight:700;color:var(--accent-dark);margin-bottom:.3rem;">4. Trocknen</p>
+        <p style="font-size:.75rem;color:var(--text-soft);">Schonend und gründlich trocknen — Restfeuchtigkeit vermeiden</p>
+      </div>
+    </div>
+    <p style="font-size:.75rem;color:var(--text-soft);font-style:italic;margin-bottom:2.2rem;">
+      Reinigungsschema nach Transcutan AB-Patienteninformation (50-1023/DE, SP183-5/DE, Ausgestellt: 03.07.2025). Quelle: Transcutan AB.
+    </p>
+
+    <!-- ══ WARNZEICHEN / HAUTPROBLEME ════════════════ -->
+    <div style="height:1px;background:var(--border);margin:0 0 2.2rem;"></div>
+    <h2 style="font-family:'DM Serif Display',serif;font-size:1.55rem;margin-bottom:1.2rem;">Mögliche Komplikationen &amp; Warnzeichen</h2>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem;">
+      <div style="background:#fdf3f2;border:1px solid #e8c0bb;border-radius:12px;padding:1.4rem;">
+        <p style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#c0392b;margin-bottom:.8rem;">⚠ Sofort Arzt/Pflegekraft kontaktieren</p>
+        <ul style="font-size:.85rem;line-height:1.8;color:var(--text-mid);list-style:none;">
+          <li>• Starke Rötung, Schwellung, Eiter → Infektion</li>
+          <li>• Persistierende Schmerzen trotz Analgesie</li>
+          <li>• Fieber</li>
+          <li>• Auslaufen von Medikamenten / Magensaft</li>
+          <li>• Blutung an der Einsetzstelle</li>
+          <li>• Blutig-nasser Verband</li>
+        </ul>
+      </div>
+      <div style="background:#fff8e8;border:1px solid #e8d898;border-radius:12px;padding:1.4rem;">
+        <p style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#a07800;margin-bottom:.8rem;">⚬ Engmaschige Beobachtung</p>
+        <ul style="font-size:.85rem;line-height:1.8;color:var(--text-mid);list-style:none;">
+          <li>• Leichte Rötung / Reizung → Reinigung intensivieren</li>
+          <li>• Persistierende Hautprobleme → Chlorhexidin 10–14 d, ggf. Kortisonsalbe</li>
+          <li>• Katheterdislokation → Radiologische Kontrolle</li>
+          <li>• Leckage bei Nicht-Gebrauch → Top-Verschluss prüfen</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- MRT Hinweis -->
+    <div style="background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:10px;padding:1.3rem 1.6rem;margin-bottom:2.5rem;">
+      <p style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem;">MRT-Kompatibilität &amp; Implantationsausweis</p>
+      <p style="font-size:.88rem;line-height:1.75;color:var(--text-mid);">
+        Da der T-port® Metall enthält (Titan-Base, Edelstahl-Top), müssen behandelnde Ärzte
+        vor jeder MRT-Untersuchung über das Implantat informiert werden. Patienten erhalten einen
+        <strong>Implantationsausweis</strong> (T-port® Implant Card, Transcutan AB), der stets
+        mitgeführt werden sollte. Weitere Informationen:
+        <a href="https://www.transcutan.com/T-port" target="_blank" style="color:var(--accent);font-weight:600;">www.transcutan.com/T-port</a>
+      </p>
+    </div>
+
+    <!-- Hersteller -->
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.3rem 1.6rem;margin-bottom:2.5rem;font-size:.85rem;line-height:1.7;color:var(--text-mid);">
+      <p style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem;">Hersteller</p>
+      <strong style="color:var(--text);">Transcutan AB</strong><br/>
+      Lilla Torget 4 · 411 18 Göteborg, Schweden<br/>
+      <a href="mailto:info@transcutan.com" style="color:var(--accent);">info@transcutan.com</a> ·
+      <a href="https://www.transcutan.com/T-port" target="_blank" style="color:var(--accent);">www.transcutan.com/T-port</a><br/>
+      <span style="font-size:.75rem;color:var(--text-soft);">Produktdokumentation: 50-1023/DE (SP183-5/DE), ausgestellt 03.07.2025. CE 0197.</span>
+    </div>
+
+    <!-- Back button -->
+    <button class="btn-back" onclick="showPage('home')">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+        <line x1="19" y1="12" x2="5" y2="12"/>
+        <polyline points="12 19 5 12 12 5"/>
+      </svg>
+      Zurück zur Startseite
+    </button>
+
   </div>
 </div>
 
@@ -945,10 +1261,300 @@
 <!-- PAGE: ÄRZTLICHES PERSONAL                      -->
 <!-- ═══════════════════════════════════════════════ -->
 <div class="page" id="page-aerzte">
-  <div class="placeholder">
-    <p class="page-label">Fachpersonal</p>
-    <h1>Ärztliches Personal</h1>
-    <p>Diese Seite wird in Kürze mit Inhalten befüllt.</p>
+  <div style="max-width:1000px;margin:0 auto;padding:3.5rem 2rem 5rem;">
+
+    <!-- HEADER -->
+    <p class="page-label">Für Ärztliches Personal &amp; Studienpersonal</p>
+    <h1 style="font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);line-height:1.2;margin-bottom:.8rem;">
+      INITIATE-LECIG — <em style="color:var(--accent);font-style:italic;">Klinische Studieninformation</em>
+    </h1>
+    <p style="font-size:.93rem;color:var(--text-mid);line-height:1.7;max-width:720px;margin-bottom:2rem;">
+      Prospektive, randomisierte, kontrollierte, offene, zweiarmige Parallelgruppenstudie zur Wirksamkeit
+      intestinaler Levodopa-Entacapone-Carbidopa-Infusion (LECIG) auf neuropsychiatrische Komplikationen
+      bei Patienten mit fortgeschrittenem Morbus Parkinson.
+    </p>
+
+    <!-- QUICK-STATS BAR -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2.5rem;">
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;">
+        <p style="font-family:'DM Serif Display',serif;font-size:2rem;color:var(--accent-dark);line-height:1;">150</p>
+        <p style="font-size:.78rem;color:var(--text-soft);margin-top:.3rem;">Patienten (2 Stufen)</p>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;">
+        <p style="font-family:'DM Serif Display',serif;font-size:2rem;color:var(--accent-dark);line-height:1;">20</p>
+        <p style="font-size:.78rem;color:var(--text-soft);margin-top:.3rem;">Expertenzentren</p>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;">
+        <p style="font-family:'DM Serif Display',serif;font-size:2rem;color:var(--accent-dark);line-height:1;">18</p>
+        <p style="font-size:.78rem;color:var(--text-soft);margin-top:.3rem;">Monate Gesamtdauer</p>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;">
+        <p style="font-family:'DM Serif Display',serif;font-size:2rem;color:var(--accent-dark);line-height:1;">1:1</p>
+        <p style="font-size:.78rem;color:var(--text-soft);margin-top:.3rem;">Randomisierung LECIG:BMT</p>
+      </div>
+    </div>
+    <div class="divider"></div>
+
+    <!-- ══ RATIONALE ══════════════════════════════ -->
+    <h2 style="font-family:'DM Serif Display',serif;font-size:1.55rem;margin-bottom:1rem;">Wissenschaftliche Rationale</h2>
+    <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:2rem;align-items:start;margin-bottom:2.5rem;">
+      <div style="font-size:.9rem;line-height:1.8;color:var(--text-mid);">
+        <p>
+          Pulsatile dopaminerge Stimulation durch orale L-Dopa-Therapie induziert im Verlauf motorische
+          Fluktuationen, Dyskinesien sowie neuropsychiatrische Komplikationen (NPS) — darunter
+          Impulskontrollstörungen (ICD), dopaminerges Dysregulationssyndrom (DDS), Hypersexualität
+          und affektive Off-Phasen-Symptomatik.
+        </p>
+        <p style="margin-top:.9rem;">
+          LECIG ermöglicht eine <strong>kontinuierliche, nicht-pulsatile</strong> jejunale Levodopa-Infusion
+          und erlaubt die Deeskalation von Dopaminagonisten, Amantadin und Anticholinergika —
+          den Haupttreibern neuropsychiatrischer Komplikationen. Die Studienhypothese: rechtzeitige
+          Konversion auf LECIG reduziert NPS-Burden signifikant gegenüber optimierter oraler Therapie (BMT).
+        </p>
+      </div>
+
+      <!-- SVG: Pulsatile vs. continuous dopamine -->
+      <div style="background:var(--accent-light);border-radius:12px;padding:1.4rem;">
+        <p style="font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:.8rem;">Stimulationsprofil im Vergleich</p>
+        <svg viewBox="0 0 260 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
+          <!-- axes -->
+          <line x1="28" y1="20" x2="28" y2="140" stroke="#aac4d5" stroke-width="1"/>
+          <line x1="28" y1="140" x2="250" y2="140" stroke="#aac4d5" stroke-width="1"/>
+          <text x="12" y="80" font-family="DM Sans,sans-serif" font-size="8" fill="#7a7a7a" transform="rotate(-90,12,80)">Dopamin-Level</text>
+          <text x="130" y="154" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="#7a7a7a">Zeit</text>
+          <!-- Therapeutic window band -->
+          <rect x="28" y="60" width="222" height="35" fill="#2e7d5e" opacity=".08"/>
+          <text x="240" y="70" text-anchor="end" font-family="DM Sans,sans-serif" font-size="7" fill="#2e7d5e" opacity=".8">Therapeutisches</text>
+          <text x="240" y="79" text-anchor="end" font-family="DM Sans,sans-serif" font-size="7" fill="#2e7d5e" opacity=".8">Fenster</text>
+          <!-- Pulsatile: oral -->
+          <polyline points="30,130 50,45 70,125 90,42 110,128 130,48 150,122 170,44 190,126 210,50 230,125"
+            fill="none" stroke="#c0392b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Continuous: LECIG -->
+          <line x1="30" y1="78" x2="232" y2="78" stroke="#3a6b8a" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- Legend -->
+          <line x1="30" y1="15" x2="50" y2="15" stroke="#c0392b" stroke-width="2"/>
+          <text x="54" y="18" font-family="DM Sans,sans-serif" font-size="8" fill="#c0392b">Oral (pulsatil)</text>
+          <line x1="130" y1="15" x2="150" y2="15" stroke="#3a6b8a" stroke-width="2.5"/>
+          <text x="154" y="18" font-family="DM Sans,sans-serif" font-size="8" fill="#3a6b8a">LECIG (kontinuierlich)</text>
+        </svg>
+      </div>
+    </div>
+
+    <!-- ══ STUDIENDESIGN ══════════════════════════ -->
+    <div style="height:1px;background:var(--border);margin:0 0 2.2rem;"></div>
+    <h2 style="font-family:'DM Serif Display',serif;font-size:1.55rem;margin-bottom:1.2rem;">Studiendesign &amp; Endpunkte</h2>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:2rem;">
+      <!-- Primary endpoint -->
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.6rem;">
+        <p style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.9rem;">Primärer Endpunkt</p>
+        <p style="font-size:.9rem;line-height:1.7;color:var(--text-mid);">
+          Veränderung des <strong>Ardouin Behaviour Scale (ABS)</strong>-Gesamtscores (dopaminerge
+          Hyperstimulations- und Hypostimulationsskala) gegenüber Baseline nach <strong>6 Monaten</strong>
+          (LECIG vs. BMT).
+        </p>
+      </div>
+      <!-- Secondary endpoints -->
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.6rem;">
+        <p style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.9rem;">Wichtige sekundäre Endpunkte</p>
+        <ul style="font-size:.85rem;line-height:1.75;color:var(--text-mid);list-style:none;display:flex;flex-direction:column;gap:.25rem;">
+          <li>• UPDRS III / MDS-UPDRS (motor)</li>
+          <li>• PDQ-39 (Lebensqualität)</li>
+          <li>• Hauser-Diary Off-Zeit / Dyskinesien</li>
+          <li>• NMS-Scale, BDI-II, QUIP-RS</li>
+          <li>• Kognition (MoCA), Schlaf (PDSS-2)</li>
+          <li>• Medikamentendosis (LEDD-Reduktion)</li>
+          <li>• Sicherheit &amp; Verträglichkeit</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- TIMELINE SVG (physician version, more detailed) -->
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.8rem;margin-bottom:2rem;overflow-x:auto;">
+      <p style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;">Studienablauf &amp; Visiten</p>
+      <svg viewBox="0 0 820 230" xmlns="http://www.w3.org/2000/svg" style="width:100%;min-width:600px;">
+        <!-- Phase bands -->
+        <rect x="10" y="10" width="800" height="210" rx="10" fill="#f8fafb"/>
+        <rect x="100" y="22" width="105" height="175" rx="7" fill="#f0e8f5" opacity=".6"/>
+        <text x="152" y="38" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#7b4a9a" font-weight="600">Screening</text>
+        <rect x="215" y="22" width="340" height="175" rx="7" fill="#e8f0f6" opacity=".55"/>
+        <text x="385" y="38" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#3a6b8a" font-weight="600">Randomisierte Phase — 6 Monate (LECIG vs. BMT)</text>
+        <rect x="565" y="22" width="238" height="175" rx="7" fill="#eef7f0" opacity=".55"/>
+        <text x="683" y="38" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#2e7d5e" font-weight="600">Open-label Nachbeobachtung — 12 Monate</text>
+
+        <!-- Timeline spine -->
+        <line x1="55" y1="120" x2="775" y2="120" stroke="#c8dae6" stroke-width="2"/>
+
+        <!-- NODES -->
+        <!-- Screening -->
+        <circle cx="55"  cy="120" r="13" fill="#7b4a9a" stroke="#fff" stroke-width="2"/>
+        <text x="55"  y="124" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="white" font-weight="700">SCR</text>
+        <text x="55"  y="148" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="#7b4a9a" font-weight="600">Screening</text>
+        <text x="55"  y="159" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7.5" fill="#7a7a7a">ABS · MoCA · MRI</text>
+
+        <!-- V1 Baseline -->
+        <circle cx="215" cy="120" r="13" fill="#284d65" stroke="#fff" stroke-width="2"/>
+        <text x="215" y="124" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="white" font-weight="700">V1</text>
+        <text x="215" y="148" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="#284d65" font-weight="600">Baseline · M0</text>
+        <text x="215" y="159" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7.5" fill="#7a7a7a">UPDRS · PDQ-39 · Labs</text>
+        <!-- Randomisation marker -->
+        <line x1="215" y1="90" x2="215" y2="107" stroke="#284d65" stroke-width="1.5" stroke-dasharray="3 2"/>
+        <text x="215" y="85" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7.5" fill="#284d65" font-weight="600">Randomisierung 1:1</text>
+
+        <!-- Arms split -->
+        <line x1="255" y1="90" x2="255" y2="75" stroke="#3a6b8a" stroke-width="1.2" opacity=".7"/>
+        <line x1="255" y1="90" x2="255" y2="150" stroke="#2e7d5e" stroke-width="1.2" opacity=".7"/>
+        <rect x="261" y="62" width="78" height="18" rx="5" fill="#3a6b8a"/>
+        <text x="300" y="75" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="white">Arm A: LECIG</text>
+        <rect x="261" y="140" width="78" height="18" rx="5" fill="#2e7d5e"/>
+        <text x="300" y="153" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="white">Arm B: BMT</text>
+
+        <!-- V2 -->
+        <circle cx="420" cy="120" r="13" fill="#3a6b8a" stroke="#fff" stroke-width="2"/>
+        <text x="420" y="124" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="white" font-weight="700">V2</text>
+        <text x="420" y="148" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="#3a6b8a" font-weight="600">Zwischen-U · M3</text>
+        <text x="420" y="159" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7.5" fill="#7a7a7a">Safety · AEs · Diary</text>
+
+        <!-- V3 -->
+        <circle cx="562" cy="120" r="13" fill="#3a6b8a" stroke="#fff" stroke-width="2"/>
+        <text x="562" y="124" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="white" font-weight="700">V3</text>
+        <text x="562" y="148" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="#3a6b8a" font-weight="600">Primäranalyse · M6</text>
+        <text x="562" y="159" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7.5" fill="#7a7a7a">Full assessment · LEDD</text>
+
+        <!-- V4 -->
+        <circle cx="757" cy="120" r="13" fill="#2e7d5e" stroke="#fff" stroke-width="2"/>
+        <text x="757" y="124" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="white" font-weight="700">V4</text>
+        <text x="757" y="148" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="#2e7d5e" font-weight="600">Follow-up · M18</text>
+        <text x="757" y="159" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7.5" fill="#7a7a7a">BMT → opt. LECIG</text>
+      </svg>
+      <p style="font-size:.72rem;color:var(--text-soft);font-style:italic;margin-top:.5rem;">
+        Abb.: Studienablauf INITIATE-LECIG. SCR = Screening, V1–V4 = geplante Visiten, M = Monat, ABS = Ardouin Behaviour Scale, BMT = beste orale medikamentöse Therapie, LEDD = Levodopa-Äquivalenzdosis.
+      </p>
+    </div>
+
+    <!-- ══ EIN- / AUSSCHLUSSKRITERIEN ════════════ -->
+    <div style="height:1px;background:var(--border);margin:0 0 2.2rem;"></div>
+    <h2 style="font-family:'DM Serif Display',serif;font-size:1.55rem;margin-bottom:1.2rem;">Ein- &amp; Ausschlusskriterien <span style="font-size:1rem;font-weight:400;color:var(--text-soft);font-family:'DM Sans',sans-serif;">(Auswahl)</span></h2>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:.8rem;">
+      <div style="background:#f0f7f0;border:1px solid #b8d8b8;border-radius:12px;padding:1.5rem;">
+        <p style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#2e7d5e;margin-bottom:.9rem;">Einschlusskriterien</p>
+        <ul style="font-size:.85rem;line-height:1.8;color:var(--text-mid);list-style:none;display:flex;flex-direction:column;gap:.2rem;">
+          <li>• Idiopathisches Parkinson-Syndrom ≥ 5 Jahre</li>
+          <li>• Alter 18–75 J.; Erstmanifestation &lt; 65 J.</li>
+          <li>• Aktuelle Therapie mit L-Dopa + Dopaminagonist</li>
+          <li>• Motorische Fluktuationen (≥ 2h Off/Tag im Diary)</li>
+          <li>• NPS gemäß ABS-Kriterien (Hyper- od. Hypostimulation)</li>
+          <li>• Schriftliche Einwilligungserklärung</li>
+          <li>• Frühere Foslevodopa-Therapie zulässig (≥ 3 Mon. Wash-out)</li>
+        </ul>
+      </div>
+      <div style="background:#fdf3f2;border:1px solid #e8c0bb;border-radius:12px;padding:1.5rem;">
+        <p style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#c0392b;margin-bottom:.9rem;">Ausschlusskriterien</p>
+        <ul style="font-size:.85rem;line-height:1.8;color:var(--text-mid);list-style:none;display:flex;flex-direction:column;gap:.2rem;">
+          <li>• Demenz (MoCA &lt; 21) od. schwere kognitive Einschränkung</li>
+          <li>• Akute Psychose / Halluzinationen ohne Krankheitseinsicht</li>
+          <li>• Schwere Depression, akute Suizidalität</li>
+          <li>• Bestehende gerätgestützte Therapie (THS, Pumpe)</li>
+          <li>• Aktive, nicht-remittierte Neoplasie</li>
+          <li>• Kontraindikationen gegen PEG-J-Anlage oder L-Dopa</li>
+          <li>• Schwangerschaft / Stillzeit</li>
+        </ul>
+      </div>
+    </div>
+    <p style="font-size:.75rem;color:var(--text-soft);font-style:italic;margin-bottom:2.2rem;">Vollständige Kriterien im Prüfplan (Protokollversion gemäß Ethikvotum). Kontaktieren Sie die Studienkoordination für aktuelle Protokolldokumente.</p>
+
+    <!-- ══ ASSESSMENTS / ERHEBUNGSINSTRUMENTE ════ -->
+    <div style="height:1px;background:var(--border);margin:0 0 2.2rem;"></div>
+    <h2 style="font-family:'DM Serif Display',serif;font-size:1.55rem;margin-bottom:1.2rem;">Klinische Erhebungsinstrumente</h2>
+
+    <!-- Assessment wheel / grid -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2.2rem;">
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;">
+        <p style="font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem;">Neuropsychiatrie</p>
+        <ul style="font-size:.82rem;line-height:1.7;color:var(--text-mid);list-style:none;">
+          <li>• Ardouin Behaviour Scale (ABS) ★</li>
+          <li>• QUIP-RS (ICD)</li>
+          <li>• BDI-II (Depression)</li>
+          <li>• STAI (Angst)</li>
+          <li>• NMS-Scale</li>
+        </ul>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;">
+        <p style="font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem;">Motorik &amp; Funktion</p>
+        <ul style="font-size:.82rem;line-height:1.7;color:var(--text-mid);list-style:none;">
+          <li>• MDS-UPDRS I–IV</li>
+          <li>• Hauser-Diary (Off / On / Dyskin.)</li>
+          <li>• Hoehn &amp; Yahr</li>
+          <li>• PDQ-39</li>
+          <li>• LEDD-Berechnung</li>
+        </ul>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;">
+        <p style="font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem;">Kognition &amp; Schlaf</p>
+        <ul style="font-size:.82rem;line-height:1.7;color:var(--text-mid);list-style:none;">
+          <li>• MoCA</li>
+          <li>• PDSS-2 (Schlaf)</li>
+          <li>• ESS (Tagesschläfrigkeit)</li>
+          <li>• RBD-Screening</li>
+          <li>• Laborchemie / Vitalparameter</li>
+        </ul>
+      </div>
+    </div>
+    <p style="font-size:.75rem;color:var(--text-soft);font-style:italic;margin-bottom:2.2rem;">★ Primärer Endpunkt. Alle Erhebungen gemäß Visitenplan (SCR, V1, V2, V3, V4).</p>
+
+    <!-- ══ T-PORT NOTE ════════════════════════════ -->
+    <div style="background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:10px;padding:1.4rem 1.6rem;margin-bottom:2.2rem;">
+      <p style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem;">Zugangssystem: PEG-J &amp; T-Port</p>
+      <p style="font-size:.88rem;line-height:1.75;color:var(--text-mid);">
+        Die jejunale Applikation kann konventionell via PEG-J oder — seit März 2026 erstmals in Deutschland verfügbar —
+        über das <strong>T-Port</strong>-System erfolgen. Skandinavische Real-World-Daten weisen auf höheren
+        Alltagskomfort und reduzierte Hardware-Komplikationsraten hin. Beide Zugangswege sind im Studienprotokoll
+        zugelassen. Weitere Informationen: <a href="#" onclick="showPage('tport')" style="color:var(--accent);font-weight:600;">T-Port-Seite</a>.
+      </p>
+    </div>
+
+    <!-- ══ REGISTRATION + CONTACT ════════════════ -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2.5rem;">
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;">
+        <p style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.9rem;">Studienregistrierung</p>
+        <table style="width:100%;border-collapse:collapse;font-size:.85rem;">
+          <tr>
+            <td style="padding:.4rem 1rem .4rem 0;color:var(--text-soft);">EU CT Nr.</td>
+            <td style="padding:.4rem 0;color:var(--text);font-weight:500;">2025-521048-39-00</td>
+          </tr>
+          <tr style="border-top:1px solid var(--border);">
+            <td style="padding:.4rem 1rem .4rem 0;color:var(--text-soft);">ClinicalTrials.gov</td>
+            <td style="padding:.4rem 0;color:var(--text);font-weight:500;">NCT07151378</td>
+          </tr>
+          <tr style="border-top:1px solid var(--border);">
+            <td style="padding:.4rem 1rem .4rem 0;color:var(--text-soft);">Sponsor</td>
+            <td style="padding:.4rem 0;color:var(--text);font-weight:500;">STADAPHARM GmbH, Bad Vilbel</td>
+          </tr>
+        </table>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;">
+        <p style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.9rem;">Studienleitung / Kontakt</p>
+        <p style="font-size:.85rem;line-height:1.75;color:var(--text-mid);">
+          <strong style="color:var(--text);">Prof. Dr. med. Daniel Weiß</strong> (PI)<br/>
+          <strong style="color:var(--text);">Dr. med. Idil Cebi</strong> (Koordination)<br/><br/>
+          Neurologische Klinik · UKT<br/>
+          Hoppe-Seyler-Str. 3 · 72076 Tübingen<br/>
+          <a href="#" onclick="showPage('kontakt')" style="color:var(--accent);font-weight:600;font-size:.83rem;">→ Kontaktformular</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Back button -->
+    <button class="btn-back" onclick="showPage('home')">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+        <line x1="19" y1="12" x2="5" y2="12"/>
+        <polyline points="12 19 5 12 12 5"/>
+      </svg>
+      Zurück zur Startseite
+    </button>
+
   </div>
 </div>
 
