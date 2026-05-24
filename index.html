@@ -109,10 +109,10 @@
 
     .hero h1 {
       font-family: 'DM Serif Display', serif;
-      font-size: clamp(2.2rem, 4vw, 3.4rem);
-      line-height: 1.2;
+      font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+      line-height: 1.25;
       color: var(--text);
-      max-width: 780px;
+      max-width: 100%;
       margin-bottom: 1.6rem;
     }
 
@@ -122,11 +122,12 @@
     }
 
     .hero-lead {
-      font-size: 1.05rem;
+      font-size: 1rem;
       line-height: 1.75;
       color: var(--text-mid);
-      max-width: 680px;
+      max-width: 100%;
       margin-bottom: 2.8rem;
+      text-align: justify;
     }
 
     .divider {
@@ -183,6 +184,7 @@
       font-size: .9rem;
       line-height: 1.7;
       color: var(--text-mid);
+      text-align: justify;
     }
 
     /* ── STUDY DETAILS SECTION ───────────────────── */
@@ -202,7 +204,8 @@
       font-size: .95rem;
       line-height: 1.8;
       color: var(--text-mid);
-      max-width: 780px;
+      max-width: 100%;
+      text-align: justify;
     }
 
     .tag-row {
@@ -384,6 +387,34 @@
     .placeholder p {
       font-size: .95rem;
       color: var(--text-soft);
+    }
+
+    /* ── GLOBAL BODY TEXT JUSTIFY & SUBPAGE TITLES ── */
+    /* All running prose paragraphs */
+    p { text-align: justify; }
+    /* Subpage h1 titles: compact, max 2 lines */
+    .page > div > h1,
+    .page > div > div > h1 {
+      font-size: clamp(1.5rem, 2.4vw, 2rem) !important;
+      line-height: 1.25 !important;
+      max-width: 100% !important;
+    }
+    /* Subpage lead / intro paragraphs fill full width */
+    .page > div > p {
+      max-width: 100% !important;
+    }
+    /* All inline-styled paragraphs inside subpages should also justify */
+    .page p,
+    .section-body p,
+    .hero-lead {
+      text-align: justify;
+    }
+    /* Don't justify centered elements or captions */
+    .placeholder p,
+    footer,
+    .card-icon + *,
+    [style*="text-align:center"] p {
+      text-align: inherit;
     }
 
     /* ── FOOTER ──────────────────────────────────── */
@@ -698,10 +729,10 @@
 
     <!-- HEADER -->
     <p class="page-label">Zugangssystem · Substudie</p>
-    <h1 style="font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);line-height:1.2;margin-bottom:.8rem;">
+    <h1 style="font-family:'DM Serif Display',serif;font-size:clamp(1.5rem,2.4vw,2rem);line-height:1.2;margin-bottom:.8rem;">
       T-port® <em style="color:var(--accent);font-style:italic;">Enteral Access System</em>
     </h1>
-    <p style="font-size:.95rem;color:var(--text-mid);line-height:1.75;max-width:720px;margin-bottom:2rem;">
+    <p style="font-size:.95rem;color:var(--text-mid);line-height:1.75;margin-bottom:2rem;">
       Im Rahmen von INITIATE-LECIG wird der T-port® erstmals in Deutschland und Österreich als
       alternatives Zugangssystem zur konventionellen PEG-J-Sonde eingesetzt — bei einem Teil der
       Patienten im Rahmen einer begleitenden Substudie.
@@ -711,7 +742,16 @@
     <!-- ══ WAS IST DER T-PORT? ══════════════════════ -->
     <h2 style="font-family:'DM Serif Display',serif;font-size:1.55rem;margin-bottom:1.2rem;">Was ist der T-port®?</h2>
 
-    <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:2.5rem;align-items:start;margin-bottom:2.5rem;">
+    <!-- T_port1: full-width anatomical diagram -->
+    <div style="background:var(--accent-light);border-radius:12px;padding:1.2rem;margin-bottom:1.5rem;display:flex;flex-direction:column;align-items:center;gap:.6rem;">
+      <img src="T_port1.png" alt="T-port® Querschnitt: Top, Base und Katheter" style="width:100%;max-width:680px;border-radius:8px;"/>
+      <p style="font-size:.72rem;color:var(--text-soft);text-align:center;font-style:italic;margin:0;">
+        Abb. 1: Querschnitt des T-port®-Systems mit Top, subkutaner Base und enteral Katheter. <span style="font-size:.68rem;">Quelle: Transcutan AB</span>
+      </p>
+    </div>
+
+    <!-- Text left, T_port2 components right -->
+    <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:2.5rem;align-items:start;margin-bottom:2.5rem;">
       <div style="font-size:.93rem;line-height:1.8;color:var(--text-mid);">
         <p>
           Der T-port® ist ein subkutan implantiertes enterales Zugangssystem der Firma
@@ -731,24 +771,12 @@
         </p>
       </div>
 
-      <!-- Real images: T_port1 (cross-section) + T_port2 (components) -->
-      <div style="display:flex;flex-direction:column;gap:1.2rem;">
-        <!-- T_port1: anatomical diagram -->
-        <div style="background:var(--accent-light);border-radius:12px;padding:1.2rem;display:flex;flex-direction:column;align-items:center;gap:.6rem;">
-          <img src="T_port1.png" alt="T-port® Querschnitt: Top, Base und Katheter" style="width:100%;max-width:380px;border-radius:8px;"/>
-          <p style="font-size:.72rem;color:var(--text-soft);text-align:center;font-style:italic;margin:0;">
-            Abb. 1: Querschnitt des T-port®-Systems mit Top, subkutaner Base und enteral Katheter.<br/>
-            <span style="font-size:.68rem;">Quelle: Transcutan AB</span>
-          </p>
-        </div>
-        <!-- T_port2: components -->
-        <div style="background:var(--accent-light);border-radius:12px;padding:1.2rem;display:flex;flex-direction:column;align-items:center;gap:.6rem;">
-          <img src="T_port2.png" alt="T-port® Komponenten: Top Luer-Lock, Base, Top ENFit, Enteral Catheter" style="width:100%;max-width:220px;border-radius:8px;"/>
-          <p style="font-size:.72rem;color:var(--text-soft);text-align:center;font-style:italic;margin:0;">
-            Abb. 2: Komponenten des T-port®-Systems (Top Luer-Lock, Base, Top ENFit, Enteral Catheter).<br/>
-            <span style="font-size:.68rem;">Quelle: Transcutan AB</span>
-          </p>
-        </div>
+      <!-- T_port2: components portrait -->
+      <div style="background:var(--accent-light);border-radius:12px;padding:1.2rem;display:flex;flex-direction:column;align-items:center;gap:.6rem;">
+        <img src="T_port2.png" alt="T-port® Komponenten: Top Luer-Lock, Base, Top ENFit, Enteral Catheter" style="width:100%;max-width:200px;border-radius:8px;"/>
+        <p style="font-size:.72rem;color:var(--text-soft);text-align:center;font-style:italic;margin:0;">
+          Abb. 2: Komponenten des T-port®-Systems (Top Luer-Lock, Base, Top ENFit, Enteral Catheter). <span style="font-size:.68rem;">Quelle: Transcutan AB</span>
+        </p>
       </div>
     </div>
 
@@ -877,7 +905,7 @@
     <div style="height:1px;background:var(--border);margin:0 0 2.2rem;"></div>
     <h2 style="font-family:'DM Serif Display',serif;font-size:1.55rem;margin-bottom:1.2rem;">Tägliche Stomapflege</h2>
 
-    <p style="font-size:.92rem;line-height:1.75;color:var(--text-mid);max-width:720px;margin-bottom:1.5rem;">
+    <p style="font-size:.92rem;line-height:1.75;color:var(--text-mid);margin-bottom:1.5rem;">
       Regelmäßige Pflege ist entscheidend für die Lebensdauer des T-port® und zur Vermeidung von
       Stomainfektionen. Morgens und abends reinigen, stets gründlich trocknen. Den Katheter nach
       Gebrauch mit 20–40 ml Trinkwasser spülen.
@@ -965,10 +993,10 @@
 
     <!-- PAGE LABEL + TITLE -->
     <p class="page-label">Für Patienten &amp; Angehörige</p>
-    <h1 style="font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);line-height:1.2;margin-bottom:.8rem;">
+    <h1 style="font-family:'DM Serif Display',serif;font-size:clamp(1.5rem,2.4vw,2rem);line-height:1.2;margin-bottom:.8rem;">
       Informationen zur <em style="color:var(--accent);font-style:italic;">INITIATE-LECIG</em>-Studie
     </h1>
-    <p style="font-size:.95rem;color:var(--text-mid);line-height:1.7;max-width:680px;margin-bottom:2.2rem;">
+    <p style="font-size:.95rem;color:var(--text-mid);line-height:1.7;margin-bottom:2.2rem;">
       Diese Seite richtet sich an Patienten mit Morbus Parkinson und ihre Angehörigen.
       Wir möchten Ihnen verständlich erklären, worum es in dieser Studie geht und was eine Teilnahme bedeutet.
     </p>
@@ -1205,10 +1233,10 @@
 
     <!-- HEADER -->
     <p class="page-label">Für Ärztliches Personal &amp; Studienpersonal</p>
-    <h1 style="font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);line-height:1.2;margin-bottom:.8rem;">
+    <h1 style="font-family:'DM Serif Display',serif;font-size:clamp(1.5rem,2.4vw,2rem);line-height:1.2;margin-bottom:.8rem;">
       INITIATE-LECIG — <em style="color:var(--accent);font-style:italic;">Klinische Studieninformation</em>
     </h1>
-    <p style="font-size:.93rem;color:var(--text-mid);line-height:1.7;max-width:720px;margin-bottom:2rem;">
+    <p style="font-size:.93rem;color:var(--text-mid);line-height:1.7;margin-bottom:2rem;">
       Prospektive, randomisierte, kontrollierte, offene, zweiarmige Parallelgruppenstudie zur Wirksamkeit
       intestinaler Levodopa-Entacapone-Carbidopa-Infusion (LECIG) auf neuropsychiatrische Komplikationen
       bei Patienten mit fortgeschrittenem Morbus Parkinson.
