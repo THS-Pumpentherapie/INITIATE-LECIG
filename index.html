@@ -731,53 +731,24 @@
         </p>
       </div>
 
-      <!-- SVG: anatomical cross-section T-port -->
-      <div style="background:var(--accent-light);border-radius:14px;padding:1.5rem;display:flex;flex-direction:column;align-items:center;gap:.8rem;">
-        <svg viewBox="0 0 280 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:280px;">
-          <!-- Skin layer -->
-          <rect x="10" y="80" width="260" height="18" rx="4" fill="#f4d7c3" opacity=".9"/>
-          <text x="140" y="93" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8.5" fill="#8b5e3c">Haut</text>
-
-          <!-- Subcutaneous fat layer -->
-          <rect x="10" y="98" width="260" height="40" rx="0" fill="#fdecd8" opacity=".7"/>
-          <text x="22" y="122" font-family="DM Sans,sans-serif" font-size="7.5" fill="#c0906a">Subkutangewebe</text>
-
-          <!-- Stomach wall -->
-          <rect x="10" y="138" width="260" height="22" rx="0" fill="#d8e8c8" opacity=".8"/>
-          <text x="140" y="153" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="#4a7a3a">Magenwand</text>
-
-          <!-- Stomach lumen -->
-          <rect x="10" y="160" width="260" height="50" rx="0" fill="#eef7e8" opacity=".7"/>
-          <text x="140" y="185" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="#4a7a3a">Magenlumen → Jejunum</text>
-
-          <!-- T-port Top (above skin) -->
-          <rect x="110" y="48" width="60" height="32" rx="8" fill="#4a4a4a"/>
-          <rect x="118" y="54" width="44" height="20" rx="5" fill="#888"/>
-          <text x="140" y="68" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7.5" fill="white" font-weight="600">T-port® Top</text>
-          <text x="140" y="42" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7" fill="#4a4a4a">(Edelstahl)</text>
-
-          <!-- T-port Base (subcutaneous) -->
-          <ellipse cx="140" cy="115" rx="30" ry="12" fill="#b0c8e0" stroke="#3a6b8a" stroke-width="1.5"/>
-          <text x="140" y="119" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7.5" fill="#284d65" font-weight="600">T-port® Base (Ti)</text>
-
-          <!-- Vertical connector -->
-          <line x1="140" y1="80" x2="140" y2="103" stroke="#555" stroke-width="3" stroke-linecap="round"/>
-          <line x1="140" y1="127" x2="140" y2="138" stroke="#3a6b8a" stroke-width="2.5" stroke-dasharray="3 2"/>
-
-          <!-- Catheter going right into jejunum -->
-          <path d="M140,150 Q170,158 220,165 Q240,168 255,172" fill="none" stroke="#e08040" stroke-width="3" stroke-linecap="round"/>
-          <text x="220" y="180" font-family="DM Sans,sans-serif" font-size="7.5" fill="#b06020">Katheter →</text>
-          <text x="220" y="190" font-family="DM Sans,sans-serif" font-size="7" fill="#b06020">Jejunum</text>
-
-          <!-- Labels with lines -->
-          <line x1="172" y1="115" x2="200" y2="105" stroke="#3a6b8a" stroke-width=".8"/>
-          <text x="202" y="103" font-family="DM Sans,sans-serif" font-size="7" fill="#3a6b8a">Titan-Flansch</text>
-          <text x="202" y="113" font-family="DM Sans,sans-serif" font-size="7" fill="#3a6b8a">subkutan</text>
-        </svg>
-        <p style="font-size:.72rem;color:var(--text-soft);text-align:center;font-style:italic;">
-          Schematischer Querschnitt des T-port®-Systems.<br/>
-          <span style="font-size:.68rem;">Quelle: Transcutan AB</span>
-        </p>
+      <!-- Real images: T_port1 (cross-section) + T_port2 (components) -->
+      <div style="display:flex;flex-direction:column;gap:1.2rem;">
+        <!-- T_port1: anatomical diagram -->
+        <div style="background:var(--accent-light);border-radius:12px;padding:1.2rem;display:flex;flex-direction:column;align-items:center;gap:.6rem;">
+          <img src="T_port1.png" alt="T-port® Querschnitt: Top, Base und Katheter" style="width:100%;max-width:380px;border-radius:8px;"/>
+          <p style="font-size:.72rem;color:var(--text-soft);text-align:center;font-style:italic;margin:0;">
+            Abb. 1: Querschnitt des T-port®-Systems mit Top, subkutaner Base und enteral Katheter.<br/>
+            <span style="font-size:.68rem;">Quelle: Transcutan AB</span>
+          </p>
+        </div>
+        <!-- T_port2: components -->
+        <div style="background:var(--accent-light);border-radius:12px;padding:1.2rem;display:flex;flex-direction:column;align-items:center;gap:.6rem;">
+          <img src="T_port2.png" alt="T-port® Komponenten: Top Luer-Lock, Base, Top ENFit, Enteral Catheter" style="width:100%;max-width:220px;border-radius:8px;"/>
+          <p style="font-size:.72rem;color:var(--text-soft);text-align:center;font-style:italic;margin:0;">
+            Abb. 2: Komponenten des T-port®-Systems (Top Luer-Lock, Base, Top ENFit, Enteral Catheter).<br/>
+            <span style="font-size:.68rem;">Quelle: Transcutan AB</span>
+          </p>
+        </div>
       </div>
     </div>
 
@@ -912,44 +883,13 @@
       Gebrauch mit 20–40 ml Trinkwasser spülen.
     </p>
 
-    <!-- 4-step cleaning visual -->
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2rem;">
-      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;">
-        <div style="width:44px;height:44px;border-radius:50%;background:var(--accent-light);margin:0 auto .8rem;display:flex;align-items:center;justify-content:center;">
-          <svg width="22" height="22" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" viewBox="0 0 24 24">
-            <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z"/><path d="M12 8v4l3 3"/>
-          </svg>
-        </div>
-        <p style="font-size:.78rem;font-weight:700;color:var(--accent-dark);margin-bottom:.3rem;">1. Befeuchten</p>
-        <p style="font-size:.75rem;color:var(--text-soft);">Bereich mit Wasser anfeuchten</p>
-      </div>
-      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;">
-        <div style="width:44px;height:44px;border-radius:50%;background:var(--accent-light);margin:0 auto .8rem;display:flex;align-items:center;justify-content:center;">
-          <svg width="22" height="22" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/>
-          </svg>
-        </div>
-        <p style="font-size:.78rem;font-weight:700;color:var(--accent-dark);margin-bottom:.3rem;">2. Reinigen</p>
-        <p style="font-size:.75rem;color:var(--text-soft);">Ablagerungen mit Tupfer / weicher Bürste entfernen</p>
-      </div>
-      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;">
-        <div style="width:44px;height:44px;border-radius:50%;background:var(--accent-light);margin:0 auto .8rem;display:flex;align-items:center;justify-content:center;">
-          <svg width="22" height="22" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" viewBox="0 0 24 24">
-            <path d="M12 22C6.5 22 2 17.5 2 12S6.5 2 12 2s10 4.5 10 10-4.5 10-10 10z"/><path d="M8 12h8M12 8v8"/>
-          </svg>
-        </div>
-        <p style="font-size:.78rem;font-weight:700;color:var(--accent-dark);margin-bottom:.3rem;">3. Spülen</p>
-        <p style="font-size:.75rem;color:var(--text-soft);">Mit Wasser nachspülen</p>
-      </div>
-      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;">
-        <div style="width:44px;height:44px;border-radius:50%;background:var(--accent-light);margin:0 auto .8rem;display:flex;align-items:center;justify-content:center;">
-          <svg width="22" height="22" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" viewBox="0 0 24 24">
-            <path d="M3 12s4-8 9-8 9 8 9 8-4 8-9 8-9-8-9-8z"/><circle cx="12" cy="12" r="3"/>
-          </svg>
-        </div>
-        <p style="font-size:.78rem;font-weight:700;color:var(--accent-dark);margin-bottom:.3rem;">4. Trocknen</p>
-        <p style="font-size:.75rem;color:var(--text-soft);">Schonend und gründlich trocknen — Restfeuchtigkeit vermeiden</p>
-      </div>
+    <!-- T_port3: cleaning steps illustration -->
+    <div style="background:var(--accent-light);border-radius:12px;padding:1.5rem;display:flex;flex-direction:column;align-items:center;gap:.8rem;margin-bottom:1rem;max-width:480px;">
+      <img src="T_port3.png" alt="Tägliche Reinigung des T-port® in 4 Schritten" style="width:100%;border-radius:8px;"/>
+      <p style="font-size:.72rem;color:var(--text-soft);text-align:center;font-style:italic;margin:0;">
+        Abb. 3: Empfohlene tägliche Reinigung des T-port® in vier Schritten.<br/>
+        <span style="font-size:.68rem;">Quelle: Transcutan AB</span>
+      </p>
     </div>
     <p style="font-size:.75rem;color:var(--text-soft);font-style:italic;margin-bottom:2.2rem;">
       Reinigungsschema nach Transcutan AB-Patienteninformation (50-1023/DE, SP183-5/DE, Ausgestellt: 03.07.2025). Quelle: Transcutan AB.
