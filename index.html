@@ -538,73 +538,11 @@
     <!-- MAP + LIST side by side -->
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2rem;align-items:start;">
 
-      <!-- SVG MAP -->
+      <!-- MAP IMAGE -->
       <div>
-        <svg viewBox="0 0 420 520" xmlns="http://www.w3.org/2000/svg"
-             style="width:100%;max-width:420px;border:1px solid var(--border);border-radius:12px;background:#eef3f7;">
-
-          <!-- ── Simplified Germany + Austria outline ── -->
-          <!-- Germany -->
-          <path d="
-            M170,30 L195,28 L220,35 L245,32 L265,42 L278,38 L290,50 L295,65
-            L305,75 L310,90 L318,100 L315,115 L325,128 L322,142 L330,155
-            L325,168 L335,178 L330,192 L320,200 L315,215 L305,225 L310,238
-            L300,248 L295,262 L285,270 L278,285 L268,292 L260,305 L250,312
-            L240,322 L232,335 L225,345 L215,350 L205,345 L195,350 L185,345
-            L178,332 L170,325 L162,312 L155,302 L148,290 L140,280 L132,272
-            L125,260 L118,248 L112,235 L108,220 L102,210 L98,195 L95,180
-            L88,170 L82,158 L80,143 L85,130 L90,118 L95,105 L100,92
-            L108,80 L115,68 L122,58 L135,48 L148,40 L160,33 Z
-          " fill="#d8e6ef" stroke="#aac4d5" stroke-width="1.2"/>
-
-          <!-- Austria (below Germany, right side) -->
-          <path d="
-            M195,355 L210,350 L228,348 L245,352 L262,348 L278,352 L292,358
-            L300,368 L295,380 L285,388 L272,390 L258,392 L245,395 L230,393
-            L215,390 L202,382 L192,372 L190,360 Z
-          " fill="#ddeaf2" stroke="#aac4d5" stroke-width="1.2"/>
-
-          <!-- ── City dots ── -->
-          <!-- Wolfach (Parkinsonklinik Ortenau) ~155,285 -->
-          <circle cx="152" cy="282" r="6" fill="#3a6b8a" stroke="#fff" stroke-width="1.5"/>
-          <!-- Saarlouis (DRK) ~128,225 -->
-          <circle cx="125" cy="222" r="6" fill="#3a6b8a" stroke="#fff" stroke-width="1.5"/>
-          <!-- Potsdam (Ernst von Bergman) ~248,112 -->
-          <circle cx="248" cy="110" r="6" fill="#3a6b8a" stroke="#fff" stroke-width="1.5"/>
-          <!-- Agatharied (Krankenhaus) ~235,318 -->
-          <circle cx="237" cy="315" r="6" fill="#3a6b8a" stroke="#fff" stroke-width="1.5"/>
-          <!-- Berlin (Charité) ~258,100 -->
-          <circle cx="258" cy="98" r="6" fill="#3a6b8a" stroke="#fff" stroke-width="1.5"/>
-          <!-- Bottrop (Knappschaft) ~148,172 -->
-          <circle cx="148" cy="170" r="6" fill="#3a6b8a" stroke="#fff" stroke-width="1.5"/>
-          <!-- Münster (UKM) ~155,155 -->
-          <circle cx="155" cy="153" r="6" fill="#3a6b8a" stroke="#fff" stroke-width="1.5"/>
-          <!-- Dresden (UKD) ~268,188 -->
-          <circle cx="268" cy="186" r="6" fill="#3a6b8a" stroke="#fff" stroke-width="1.5"/>
-          <!-- Marburg ~175,210 -->
-          <circle cx="175" cy="208" r="6" fill="#3a6b8a" stroke="#fff" stroke-width="1.5"/>
-          <!-- Rostock ~225,68 -->
-          <circle cx="225" cy="66" r="6" fill="#3a6b8a" stroke="#fff" stroke-width="1.5"/>
-          <!-- Jena ~228,205 -->
-          <circle cx="228" cy="203" r="6" fill="#3a6b8a" stroke="#fff" stroke-width="1.5"/>
-          <!-- Tübingen ~188,305 -->
-          <circle cx="188" cy="302" r="7" fill="#284d65" stroke="#fff" stroke-width="2"/>
-          <!-- Klagenfurt (Österreich) ~270,372 -->
-          <circle cx="272" cy="370" r="6" fill="#3a6b8a" stroke="#fff" stroke-width="1.5"/>
-
-          <!-- ── Country labels ── -->
-          <text x="195" y="195" text-anchor="middle" font-family="DM Sans,sans-serif"
-                font-size="11" fill="#5a7a8a" font-weight="600" opacity="0.7">DEUTSCHLAND</text>
-          <text x="245" y="378" text-anchor="middle" font-family="DM Sans,sans-serif"
-                font-size="9" fill="#5a7a8a" font-weight="600" opacity="0.7">ÖSTERREICH</text>
-
-          <!-- ── Legend ── -->
-          <rect x="10" y="458" width="400" height="52" rx="6" fill="white" opacity="0.85"/>
-          <circle cx="28" cy="474" r="5" fill="#3a6b8a" stroke="#fff" stroke-width="1.5"/>
-          <text x="38" y="478" font-family="DM Sans,sans-serif" font-size="10" fill="#1a1a1a">Partizipierendes Studienzentrum</text>
-          <circle cx="28" cy="494" r="6" fill="#284d65" stroke="#fff" stroke-width="2"/>
-          <text x="38" y="498" font-family="DM Sans,sans-serif" font-size="10" fill="#1a1a1a">Koordinierendes Zentrum (Tübingen)</text>
-        </svg>
+        <img src="studienzentren_map.png"
+             alt="Geographische Verteilung der INITIATE-LECIG-Studienzentren in Deutschland und Österreich"
+             style="width:100%;border-radius:12px;border:1px solid var(--border);display:block;"/>
         <p style="font-size:.75rem;color:var(--text-soft);margin-top:.6rem;font-style:italic;">
           Abb. 1: Geographische Verteilung der INITIATE-LECIG-Studienzentren in Deutschland und Österreich.
         </p>
