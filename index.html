@@ -50,7 +50,7 @@
 
     .nav-logo {
       font-family: 'DM Serif Display', serif;
-      font-size: 1.6rem;
+      font-size: 1.25rem;
       letter-spacing: .03em;
       color: var(--accent-dark);
       text-decoration: none;
@@ -417,6 +417,46 @@
       text-align: inherit;
     }
 
+    /* ── NPS ROWS ────────────────────────────────── */
+    .nps-row {
+      display: grid;
+      grid-template-columns: 44px 200px 1fr;
+      align-items: center;
+      gap: 1rem;
+      padding: .85rem 1.6rem;
+      border-bottom: 1px solid var(--border);
+      transition: background .15s;
+    }
+    .nps-row:last-child { border-bottom: none; }
+    .nps-alt { background: var(--bg); }
+    .nps-row:hover { background: var(--accent-light); }
+    .nps-icon-wrap {
+      width: 38px;
+      height: 38px;
+      background: var(--accent-light);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .nps-icon-wrap svg { width: 20px; height: 20px; }
+    .nps-label {
+      font-size: .88rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .nps-desc {
+      font-size: .84rem;
+      line-height: 1.6;
+      color: var(--text-mid);
+      text-align: left;
+    }
+    @media (max-width: 600px) {
+      .nps-row { grid-template-columns: 38px 1fr; grid-template-rows: auto auto; }
+      .nps-desc { grid-column: 1 / -1; }
+    }
+
     /* ── FOOTER ──────────────────────────────────── */
     footer {
       border-top: 1px solid var(--border);
@@ -453,14 +493,21 @@
 
   <div class="hero">
     <p class="hero-label">Klinische Studie · Universitätsklinikum Tübingen</p>
-    <h1>Behandlung von Dopaminerger Desensibilisierung und Neuropsychiatrischen Komplikationen bei der <em>Parkinson-Krankheit</em></h1>
+    <h1>Intestinale dopaminerge Infusionstherapie bei <em>Parkinson-Krankheit</em></h1>
     <p class="hero-lead">
       INITIATE-LECIG untersucht die Wirksamkeit und Verträglichkeit einer intestinalen
       Levodopa-/Entacapon-Infusion (LECIG) mittels implantierbarer Pumpe bei Patienten
-      mit fortgeschrittener Parkinson-Krankheit, dopaminerger Sensitivierung sowie
+      mit fortgeschrittenem Parkinson-Krankheit, dopaminerger Sensitivierung sowie
       neuropsychiatrischen Komplikationen.
     </p>
     <div class="divider"></div>
+  </div>
+
+  <!-- COLLAGE IMAGE -->
+  <div style="max-width:1200px;margin:0 auto 2.5rem;padding:0 2rem;">
+    <img src="impulskontrolle_collage.jpg"
+         alt="Impulskontrollstörungen bei der Parkinson-Krankheit"
+         style="width:100%;border-radius:12px;display:block;box-shadow:0 4px 24px rgba(0,0,0,.10);"/>
   </div>
 
   <div class="cards-grid">
@@ -500,11 +547,175 @@
     </div>
   </div>
 
+  <!-- ── NPS SECTION ─────────────────────────────────── -->
+  <div style="max-width:1200px;margin:0 auto;padding:0 2rem 4rem;">
+    <div style="width:60px;height:3px;background:var(--accent);border-radius:2px;margin-bottom:2rem;"></div>
+    <h2 style="font-family:'DM Serif Display',serif;font-size:1.7rem;margin-bottom:.6rem;">Neuropsychiatrische Komplikationen</h2>
+    <p style="font-size:.93rem;color:var(--text-mid);margin-bottom:2rem;line-height:1.7;">Hyperdopaminerge Verhaltensweisen und Impulskontrollstörungen im Überblick</p>
+
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;">
+      <!-- header row -->
+      <div style="background:var(--accent-light);border-bottom:1px solid var(--border);padding:.85rem 1.6rem;display:grid;grid-template-columns:44px 160px 1fr;align-items:center;gap:1rem;">
+        <span></span>
+        <span style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);">Symptom</span>
+        <span style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);">Beschreibung</span>
+      </div>
+
+      <!-- rows -->
+      <div id="nps-rows">
+
+        <!-- 1 Nächtliche Hyperaktivität -->
+        <div class="nps-row">
+          <div class="nps-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </div>
+          <span class="nps-label">Nächtliche Hyperaktivität</span>
+          <span class="nps-desc">Gesteigerter Antrieb und Aktivität in der Nacht, Schlaflosigkeit und nächtliches Umherwandern trotz Erschöpfung.</span>
+        </div>
+
+        <!-- 2 Tagesschläfrigkeit -->
+        <div class="nps-row nps-alt">
+          <div class="nps-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+              <path d="M8 18s1-2 4-2 4 2 4 2"/>
+            </svg>
+          </div>
+          <span class="nps-label">Tagesschläfrigkeit</span>
+          <span class="nps-desc">Übermäßiges Schlafbedürfnis und ungewolltes Einschlafen tagsüber, teils ohne Vorwarnung.</span>
+        </div>
+
+        <!-- 3 Essstörung -->
+        <div class="nps-row">
+          <div class="nps-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+              <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+              <line x1="6" y1="1" x2="6" y2="4"/>
+              <line x1="10" y1="1" x2="10" y2="4"/>
+              <line x1="14" y1="1" x2="14" y2="4"/>
+            </svg>
+          </div>
+          <span class="nps-label">Essstörung</span>
+          <span class="nps-desc">Unkontrollierte Essanfälle und Heißhunger, häufig auf süße oder kalorienreiche Speisen.</span>
+        </div>
+
+        <!-- 4 Kreativität -->
+        <div class="nps-row nps-alt">
+          <div class="nps-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="13.5" cy="6.5" r="2.5"/>
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <path d="M19 8l-2 2-2-2 2-2 2 2z"/>
+              <path d="M22 5l-1 1"/>
+            </svg>
+          </div>
+          <span class="nps-label">Kreativität</span>
+          <span class="nps-desc">Zwanghafte Beschäftigung mit künstlerischen oder handwerklichen Tätigkeiten, Ideenflut und gesteigerter Schaffensdrang.</span>
+        </div>
+
+        <!-- 5 Drang / Sucht nach Beschäftigung -->
+        <div class="nps-row">
+          <div class="nps-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+          </div>
+          <span class="nps-label">Drang oder Sucht nach Beschäftigung</span>
+          <span class="nps-desc">Zwanghaftes Bedürfnis, ständig aktiv zu sein; Unfähigkeit zur Ruhe trotz körperlicher Erschöpfung.</span>
+        </div>
+
+        <!-- 6 Punding -->
+        <div class="nps-row nps-alt">
+          <div class="nps-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="17 1 21 5 17 9"/>
+              <path d="M3 11V9a4 4 0 0 1 4-4h14"/>
+              <polyline points="7 23 3 19 7 15"/>
+              <path d="M21 13v2a4 4 0 0 1-4 4H3"/>
+            </svg>
+          </div>
+          <span class="nps-label">Punding</span>
+          <span class="nps-desc">Sinnlose, repetitive Handlungen wie Sortieren, Zerlegen oder Ordnen von Gegenständen über Stunden hinweg.</span>
+        </div>
+
+        <!-- 7 Risikoverhalten -->
+        <div class="nps-row">
+          <div class="nps-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+              <line x1="12" y1="9" x2="12" y2="13"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+          </div>
+          <span class="nps-label">Risikoverhalten</span>
+          <span class="nps-desc">Leichtsinnige, gefährliche Handlungen ohne angemessene Risikoabwägung, z.B. rücksichtsloses Fahren.</span>
+        </div>
+
+        <!-- 8 Kaufsucht -->
+        <div class="nps-row nps-alt">
+          <div class="nps-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+              <line x1="3" y1="6" x2="21" y2="6"/>
+              <path d="M16 10a4 4 0 0 1-8 0"/>
+            </svg>
+          </div>
+          <span class="nps-label">Kaufsucht</span>
+          <span class="nps-desc">Unkontrollierbarer Drang zu kaufen, häufig ohne Bedarf, mit erheblichen finanziellen Folgen.</span>
+        </div>
+
+        <!-- 9 Spielsucht -->
+        <div class="nps-row">
+          <div class="nps-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="7" width="20" height="15" rx="2" ry="2"/>
+              <polyline points="17 2 12 7 7 2"/>
+              <circle cx="8" cy="14" r="1.5" fill="var(--accent)"/>
+              <circle cx="12" cy="11" r="1.5" fill="var(--accent)"/>
+              <circle cx="16" cy="14" r="1.5" fill="var(--accent)"/>
+              <circle cx="12" cy="17" r="1.5" fill="var(--accent)"/>
+            </svg>
+          </div>
+          <span class="nps-label">Spielsucht</span>
+          <span class="nps-desc">Pathologisches Glücksspiel mit Kontrollverlust, anhaltend trotz finanzieller und sozialer Schäden.</span>
+        </div>
+
+        <!-- 10 Hypersexualität -->
+        <div class="nps-row nps-alt">
+          <div class="nps-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
+          <span class="nps-label">Hypersexualität</span>
+          <span class="nps-desc">Gesteigertes, unkontrollierbares sexuelles Verlangen, häufig begleitet von sozialer Enthemmung.</span>
+        </div>
+
+        <!-- 11 Sucht nach dopaminergen Substanzen -->
+        <div class="nps-row">
+          <div class="nps-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+              <path d="M3.22 12H9.5l.5-1 2 4 .5-1 2-6 .5 2h6.27"/>
+            </svg>
+          </div>
+          <span class="nps-label">Sucht nach dopaminergen Substanzen</span>
+          <span class="nps-desc">Zwanghafter Mehrkonsum von Parkinson-Medikamenten weit über die verordnete Dosis hinaus (Dopaminerges Dysregulationssyndrom).</span>
+        </div>
+
+      </div><!-- /nps-rows -->
+    </div><!-- /card -->
+  </div><!-- /NPS section -->
+
   <div class="section">
     <h2 class="section-title">Wissenschaftlicher Hintergrund</h2>
     <div class="section-body">
       <p>
-        Die Parkinson-Krankheit ist eine progrediente neurodegenerative Erkrankung, die primär durch
+        Parkinson-Krankheit ist eine progrediente neurodegenerative Erkrankung, die primär durch
         den Verlust dopaminerger Neurone im Bereich der Substantia nigra charakterisiert ist.
         Im fortgeschrittenen Stadium entwickeln viele Patienten unter oraler Levodopa-Therapie
         motorische Fluktuationen, Dyskinesien sowie neuropsychiatrische Komplikationen –
@@ -925,7 +1136,7 @@
       Informationen zur <em style="color:var(--accent);font-style:italic;">INITIATE-LECIG</em>-Studie
     </h1>
     <p style="font-size:.95rem;color:var(--text-mid);line-height:1.7;margin-bottom:2.2rem;">
-      Diese Seite richtet sich an Patienten mit der Parkinson-Krankheit und ihre Angehörigen.
+      Diese Seite richtet sich an Patienten mit Parkinson-Krankheit und ihre Angehörigen.
       Wir möchten Ihnen verständlich erklären, worum es in dieser Studie geht und was eine Teilnahme bedeutet.
     </p>
     <div class="divider"></div>
@@ -953,7 +1164,7 @@
 
     <div style="font-size:.93rem;line-height:1.8;color:var(--text-mid);margin-bottom:1rem;">
       <p>
-        Bei der Parkinson-Krankheit werden Patienten in den ersten Jahren meist gut mit oralen Medikamenten behandelt.
+        Bei Parkinson-Krankheit werden Patienten in den ersten Jahren meist gut mit oralen Medikamenten behandelt.
         Mit fortschreitender Erkrankung kann die Wirkung jedoch nachlassen: Tabletten müssen immer häufiger
         und in höheren Dosen eingenommen werden, oft in Kombination mehrerer Wirkstoffe.
       </p>
@@ -1140,7 +1351,7 @@
     <p style="font-size:.93rem;color:var(--text-mid);line-height:1.7;margin-bottom:2rem;">
       Prospektive, randomisierte, kontrollierte, offene, zweiarmige Parallelgruppenstudie zur Wirksamkeit
       intestinaler Levodopa-Entacapone-Carbidopa-Infusion (LECIG) auf neuropsychiatrische Komplikationen
-      bei Patienten mit fortgeschrittener Parkinson-Krankheit.
+      bei Patienten mit fortgeschrittenem Parkinson-Krankheit.
     </p>
 
     <!-- QUICK-STATS BAR -->
