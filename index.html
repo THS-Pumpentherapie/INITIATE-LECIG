@@ -508,52 +508,52 @@
   </div>
 
   <!-- COLLAGE + CARDS SIDE BY SIDE -->
-  <div style="max-width:1200px;margin:0 auto 2.5rem;padding:0 2rem;">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;align-items:stretch;">
+  <div style="max-width:900px;margin:0 auto 2.5rem;padding:0 2rem;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;align-items:stretch;">
 
-      <!-- LEFT: collage image, no extra wrapper padding -->
+      <!-- LEFT: collage image -->
       <img src="impulskontrolle_collage.jpg"
            alt="Impulskontrollstörungen bei der Parkinson-Krankheit"
-           style="width:100%;border-radius:12px;display:block;box-shadow:0 4px 24px rgba(0,0,0,.10);object-fit:cover;"/>
+           style="width:100%;border-radius:10px;display:block;box-shadow:0 4px 20px rgba(0,0,0,.10);object-fit:cover;"/>
 
-      <!-- RIGHT: three cards stacked flush, matching image height -->
-      <div style="display:flex;flex-direction:column;gap:1.5rem;min-height:0;">
+      <!-- RIGHT: three cards stacked, flush with image top/bottom -->
+      <div style="display:flex;flex-direction:column;gap:1.2rem;min-height:0;">
 
-        <div class="card" onclick="showPage('patienten')" style="cursor:pointer;flex:1;margin:0;min-height:0;">
-          <div class="card-icon">
+        <div class="card" onclick="showPage('patienten')" style="cursor:pointer;flex:1;margin:0;min-height:0;padding:1.2rem 1.3rem;border-radius:10px;">
+          <div class="card-icon" style="width:32px;height:32px;margin-bottom:.7rem;">
             <svg fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
               <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
               <circle cx="9" cy="7" r="4"/>
               <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
             </svg>
           </div>
-          <h3>Patienten / Angehörige</h3>
-          <p>Informationen zur Studie, zum Ablauf und zur Teilnahme – verständlich erklärt für Patienten und Angehörige.</p>
-          <p style="margin-top:.9rem;font-size:.82rem;font-weight:600;color:var(--accent);">Mehr erfahren →</p>
+          <h3 style="font-size:.95rem;margin-bottom:.4rem;">Patienten / Angehörige</h3>
+          <p style="font-size:.82rem;line-height:1.5;">Informationen zur Studie, zum Ablauf und zur Teilnahme – verständlich erklärt.</p>
+          <p style="margin-top:.6rem;font-size:.78rem;font-weight:600;color:var(--accent);">Mehr erfahren →</p>
         </div>
 
-        <div class="card" onclick="showPage('aerzte')" style="cursor:pointer;flex:1;margin:0;min-height:0;">
-          <div class="card-icon">
+        <div class="card" onclick="showPage('aerzte')" style="cursor:pointer;flex:1;margin:0;min-height:0;padding:1.2rem 1.3rem;border-radius:10px;">
+          <div class="card-icon" style="width:32px;height:32px;margin-bottom:.7rem;">
             <svg fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
               <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
             </svg>
           </div>
-          <h3>Ärztliches Personal</h3>
-          <p>Fachliche Hintergrundinformationen, Studienprotokolle und klinische Ressourcen für medizinisches Fachpersonal.</p>
-          <p style="margin-top:.9rem;font-size:.82rem;font-weight:600;color:var(--accent);">Mehr erfahren →</p>
+          <h3 style="font-size:.95rem;margin-bottom:.4rem;">Ärztliches Personal</h3>
+          <p style="font-size:.82rem;line-height:1.5;">Fachliche Hintergrundinformationen, Studienprotokolle und klinische Ressourcen.</p>
+          <p style="margin-top:.6rem;font-size:.78rem;font-weight:600;color:var(--accent);">Mehr erfahren →</p>
         </div>
 
-        <div class="card" onclick="showPage('tport')" style="cursor:pointer;flex:1;margin:0;min-height:0;">
-          <div class="card-icon">
+        <div class="card" onclick="showPage('tport')" style="cursor:pointer;flex:1;margin:0;min-height:0;padding:1.2rem 1.3rem;border-radius:10px;">
+          <div class="card-icon" style="width:32px;height:32px;margin-bottom:.7rem;">
             <svg fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
               <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/>
               <rect x="9" y="3" width="6" height="4" rx="1"/>
               <path d="M9 12h6M9 16h4"/>
             </svg>
           </div>
-          <h3>T-Port</h3>
-          <p>Informationen zur T-Port-Technologie und deren Rolle im Rahmen der intestinalen Pumpentherapie.</p>
-          <p style="margin-top:.9rem;font-size:.82rem;font-weight:600;color:var(--accent);">Mehr erfahren →</p>
+          <h3 style="font-size:.95rem;margin-bottom:.4rem;">T-Port</h3>
+          <p style="font-size:.82rem;line-height:1.5;">Informationen zur T-Port-Technologie und deren Rolle im Rahmen der Pumpentherapie.</p>
+          <p style="margin-top:.6rem;font-size:.78rem;font-weight:600;color:var(--accent);">Mehr erfahren →</p>
         </div>
 
       </div><!-- /right column -->
