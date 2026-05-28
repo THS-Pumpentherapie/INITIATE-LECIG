@@ -1300,48 +1300,50 @@
     </p>
 
     <!-- STUDY TIMELINE SVG -->
-    <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:2.5rem 2rem;margin-bottom:1.8rem;overflow-x:auto;">
-      <svg viewBox="0 0 820 230" xmlns="http://www.w3.org/2000/svg" style="width:100%;min-width:900px;height:auto;display:block;">
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.4rem 1.2rem;margin-bottom:1.8rem;overflow-x:auto;">
+      <svg viewBox="0 0 820 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;min-width:680px;height:auto;display:block;">
         <!-- Phase bands -->
-        <rect x="10" y="10" width="800" height="210" rx="10" fill="#f8fafb"/>
-        <rect x="100" y="22" width="105" height="175" rx="7" fill="#f0e8f5" opacity=".6"/>
-        <text x="152" y="38" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#7b4a9a" font-weight="600">Screening</text>
-        <rect x="215" y="22" width="340" height="175" rx="7" fill="#e8f0f6" opacity=".55"/>
-        <text x="385" y="38" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#3a6b8a" font-weight="600">Randomisierte Phase — 6 Monate (LECIG vs. BMT)</text>
-        <rect x="565" y="22" width="238" height="175" rx="7" fill="#eef7f0" opacity=".55"/>
-        <text x="683" y="38" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#2e7d5e" font-weight="600">Nachbeobachtung — 12 Monate</text>
+        <rect x="0" y="0" width="820" height="280" rx="0" fill="#f8fafb"/>
+        <rect x="2" y="2" width="114" height="276" rx="6" fill="#f0e8f5" opacity=".55"/>
+        <rect x="120" y="2" width="350" height="276" rx="6" fill="#e8f0f6" opacity=".45"/>
+        <rect x="474" y="2" width="344" height="276" rx="6" fill="#eef7f0" opacity=".45"/>
+        <!-- Phase labels -->
+        <text x="59" y="22" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" fill="#7b4a9a" font-weight="700">Screening</text>
+        <text x="295" y="22" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" fill="#3a6b8a" font-weight="700">Randomisierte Phase — 6 Monate (LECIG vs. BMT)</text>
+        <text x="645" y="22" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" fill="#2e7d5e" font-weight="700">Nachbeobachtung — 12 Monate</text>
         <!-- Timeline spine -->
-        <line x1="55" y1="120" x2="775" y2="120" stroke="#c8dae6" stroke-width="2"/>
-        <!-- Screening -->
-        <circle cx="55"  cy="120" r="13" fill="#7b4a9a" stroke="#fff" stroke-width="2"/>
-        <text x="55"  y="124" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="white" font-weight="700">SCR</text>
-        <text x="55"  y="148" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="#7b4a9a" font-weight="600">Screening</text>
-        <!-- V1 Baseline -->
-        <circle cx="215" cy="120" r="13" fill="#284d65" stroke="#fff" stroke-width="2"/>
-        <text x="215" y="124" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="white" font-weight="700">V1</text>
-        <text x="215" y="148" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="#284d65" font-weight="600">Baseline · M0</text>
-        <line x1="215" y1="90" x2="215" y2="107" stroke="#284d65" stroke-width="1.5" stroke-dasharray="3 2"/>
-        <text x="215" y="85" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7.5" fill="#284d65" font-weight="600">Randomisierung 1:1</text>
+        <line x1="20" y1="145" x2="800" y2="145" stroke="#c8dae6" stroke-width="3"/>
+        <!-- SCR -->
+        <circle cx="59" cy="145" r="22" fill="#7b4a9a" stroke="#fff" stroke-width="2.5"/>
+        <text x="59" y="150" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="white" font-weight="700">SCR</text>
+        <text x="59" y="185" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="#7b4a9a" font-weight="600">Screening</text>
+        <!-- V1 -->
+        <circle cx="220" cy="145" r="22" fill="#284d65" stroke="#fff" stroke-width="2.5"/>
+        <text x="220" y="150" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" fill="white" font-weight="700">V1</text>
+        <text x="220" y="185" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="#284d65" font-weight="600">Baseline · M0</text>
+        <!-- Randomisierung label -->
+        <line x1="220" y1="105" x2="220" y2="123" stroke="#284d65" stroke-width="2" stroke-dasharray="4 3"/>
+        <text x="220" y="98" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="#284d65" font-weight="700">Randomisierung 1:1</text>
         <!-- Arms split -->
-        <line x1="255" y1="90" x2="255" y2="75" stroke="#3a6b8a" stroke-width="1.2" opacity=".7"/>
-        <line x1="255" y1="90" x2="255" y2="150" stroke="#2e7d5e" stroke-width="1.2" opacity=".7"/>
-        <rect x="261" y="62" width="78" height="18" rx="5" fill="#3a6b8a"/>
-        <text x="300" y="75" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="white">Arm A: LECIG</text>
-        <rect x="261" y="140" width="78" height="18" rx="5" fill="#2e7d5e"/>
-        <text x="300" y="153" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="white">Arm B: BMT</text>
+        <line x1="270" y1="110" x2="270" y2="88" stroke="#3a6b8a" stroke-width="1.8" opacity=".8"/>
+        <line x1="270" y1="110" x2="270" y2="180" stroke="#2e7d5e" stroke-width="1.8" opacity=".8"/>
+        <rect x="278" y="72" width="100" height="26" rx="6" fill="#3a6b8a"/>
+        <text x="328" y="89" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="white" font-weight="600">Arm A: LECIG</text>
+        <rect x="278" y="166" width="100" height="26" rx="6" fill="#2e7d5e"/>
+        <text x="328" y="183" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="white" font-weight="600">Arm B: BMT</text>
         <!-- V2 -->
-        <circle cx="420" cy="120" r="13" fill="#3a6b8a" stroke="#fff" stroke-width="2"/>
-        <text x="420" y="124" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="white" font-weight="700">V2</text>
-        <text x="420" y="148" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="#3a6b8a" font-weight="600">Zwischenunters. · M3</text>
+        <circle cx="430" cy="145" r="22" fill="#3a6b8a" stroke="#fff" stroke-width="2.5"/>
+        <text x="430" y="150" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" fill="white" font-weight="700">V2</text>
+        <text x="430" y="185" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="#3a6b8a" font-weight="600">Zwischenunters. · M3</text>
         <!-- V3 -->
-        <circle cx="562" cy="120" r="13" fill="#3a6b8a" stroke="#fff" stroke-width="2"/>
-        <text x="562" y="124" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="white" font-weight="700">V3</text>
-        <text x="562" y="148" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="#3a6b8a" font-weight="600">Primäranalyse · M6</text>
+        <circle cx="580" cy="145" r="22" fill="#3a6b8a" stroke="#fff" stroke-width="2.5"/>
+        <text x="580" y="150" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" fill="white" font-weight="700">V3</text>
+        <text x="580" y="185" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="#3a6b8a" font-weight="600">Primäranalyse · M6</text>
         <!-- V4 -->
-        <circle cx="757" cy="120" r="13" fill="#2e7d5e" stroke="#fff" stroke-width="2"/>
-        <text x="757" y="124" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="white" font-weight="700">V4</text>
-        <text x="757" y="148" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="#2e7d5e" font-weight="600">Follow-up · M18</text>
-        <text x="683" y="100" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="#2e7d5e" font-style="italic">BMT → opt. LECIG ab M6</text>
+        <circle cx="762" cy="145" r="22" fill="#2e7d5e" stroke="#fff" stroke-width="2.5"/>
+        <text x="762" y="150" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" fill="white" font-weight="700">V4</text>
+        <text x="762" y="185" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="#2e7d5e" font-weight="600">Follow-up · M18</text>
+        <text x="680" y="120" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11.5" fill="#2e7d5e" font-style="italic">BMT → opt. LECIG ab M6</text>
       </svg>
     </div>
 
@@ -1462,62 +1464,57 @@
     </div>
 
     <!-- TIMELINE SVG (physician version, more detailed) -->
-    <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:2.5rem 2rem;margin-bottom:2rem;overflow-x:auto;">
-      <p style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;">Studienablauf &amp; Visiten</p>
-      <svg viewBox="0 0 820 230" xmlns="http://www.w3.org/2000/svg" style="width:100%;min-width:900px;height:auto;display:block;">
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.4rem 1.2rem;margin-bottom:2rem;overflow-x:auto;">
+      <p style="font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.8rem;">Studienablauf &amp; Visiten</p>
+      <svg viewBox="0 0 820 310" xmlns="http://www.w3.org/2000/svg" style="width:100%;min-width:680px;height:auto;display:block;">
         <!-- Phase bands -->
-        <rect x="10" y="10" width="800" height="210" rx="10" fill="#f8fafb"/>
-        <rect x="100" y="22" width="105" height="175" rx="7" fill="#f0e8f5" opacity=".6"/>
-        <text x="152" y="38" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#7b4a9a" font-weight="600">Screening</text>
-        <rect x="215" y="22" width="340" height="175" rx="7" fill="#e8f0f6" opacity=".55"/>
-        <text x="385" y="38" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#3a6b8a" font-weight="600">Randomisierte Phase — 6 Monate (LECIG vs. BMT)</text>
-        <rect x="565" y="22" width="238" height="175" rx="7" fill="#eef7f0" opacity=".55"/>
-        <text x="683" y="38" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#2e7d5e" font-weight="600">Open-label Nachbeobachtung — 12 Monate</text>
-
+        <rect x="0" y="0" width="820" height="310" fill="#f8fafb"/>
+        <rect x="2"  y="2" width="114" height="306" rx="6" fill="#f0e8f5" opacity=".55"/>
+        <rect x="120" y="2" width="350" height="306" rx="6" fill="#e8f0f6" opacity=".45"/>
+        <rect x="474" y="2" width="344" height="306" rx="6" fill="#eef7f0" opacity=".45"/>
+        <!-- Phase labels -->
+        <text x="59"  y="22" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" fill="#7b4a9a" font-weight="700">Screening</text>
+        <text x="295" y="22" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" fill="#3a6b8a" font-weight="700">Randomisierte Phase — 6 Monate (LECIG vs. BMT)</text>
+        <text x="645" y="22" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" fill="#2e7d5e" font-weight="700">Open-label Nachbeobachtung — 12 Monate</text>
         <!-- Timeline spine -->
-        <line x1="55" y1="120" x2="775" y2="120" stroke="#c8dae6" stroke-width="2"/>
-
-        <!-- NODES -->
-        <!-- Screening -->
-        <circle cx="55"  cy="120" r="13" fill="#7b4a9a" stroke="#fff" stroke-width="2"/>
-        <text x="55"  y="124" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="white" font-weight="700">SCR</text>
-        <text x="55"  y="148" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="#7b4a9a" font-weight="600">Screening</text>
-        <text x="55"  y="159" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7.5" fill="#7a7a7a">ABS · MoCA · MRI</text>
-
-        <!-- V1 Baseline -->
-        <circle cx="215" cy="120" r="13" fill="#284d65" stroke="#fff" stroke-width="2"/>
-        <text x="215" y="124" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="white" font-weight="700">V1</text>
-        <text x="215" y="148" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="#284d65" font-weight="600">Baseline · M0</text>
-        <text x="215" y="159" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7.5" fill="#7a7a7a">UPDRS · PDQ-39 · Labs</text>
-        <!-- Randomisation marker -->
-        <line x1="215" y1="90" x2="215" y2="107" stroke="#284d65" stroke-width="1.5" stroke-dasharray="3 2"/>
-        <text x="215" y="85" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7.5" fill="#284d65" font-weight="600">Randomisierung 1:1</text>
-
+        <line x1="20" y1="155" x2="800" y2="155" stroke="#c8dae6" stroke-width="3"/>
+        <!-- SCR -->
+        <circle cx="59" cy="155" r="22" fill="#7b4a9a" stroke="#fff" stroke-width="2.5"/>
+        <text x="59" y="160" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="white" font-weight="700">SCR</text>
+        <text x="59" y="196" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="#7b4a9a" font-weight="600">Screening</text>
+        <text x="59" y="213" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="#7a7a7a">ABS · MoCA · MRI</text>
+        <!-- V1 -->
+        <circle cx="220" cy="155" r="22" fill="#284d65" stroke="#fff" stroke-width="2.5"/>
+        <text x="220" y="160" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" fill="white" font-weight="700">V1</text>
+        <text x="220" y="196" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="#284d65" font-weight="600">Baseline · M0</text>
+        <text x="220" y="213" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="#7a7a7a">UPDRS · PDQ-39 · Labs</text>
+        <!-- Randomisierung label -->
+        <line x1="220" y1="112" x2="220" y2="133" stroke="#284d65" stroke-width="2" stroke-dasharray="4 3"/>
+        <text x="220" y="104" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="#284d65" font-weight="700">Randomisierung 1:1</text>
         <!-- Arms split -->
-        <line x1="255" y1="90" x2="255" y2="75" stroke="#3a6b8a" stroke-width="1.2" opacity=".7"/>
-        <line x1="255" y1="90" x2="255" y2="150" stroke="#2e7d5e" stroke-width="1.2" opacity=".7"/>
-        <rect x="261" y="62" width="78" height="18" rx="5" fill="#3a6b8a"/>
-        <text x="300" y="75" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="white">Arm A: LECIG</text>
-        <rect x="261" y="140" width="78" height="18" rx="5" fill="#2e7d5e"/>
-        <text x="300" y="153" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="white">Arm B: BMT</text>
-
+        <line x1="270" y1="120" x2="270" y2="96"  stroke="#3a6b8a" stroke-width="1.8" opacity=".8"/>
+        <line x1="270" y1="120" x2="270" y2="195" stroke="#2e7d5e" stroke-width="1.8" opacity=".8"/>
+        <rect x="278" y="78" width="105" height="28" rx="6" fill="#3a6b8a"/>
+        <text x="330" y="96" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="white" font-weight="600">Arm A: LECIG</text>
+        <rect x="278" y="180" width="105" height="28" rx="6" fill="#2e7d5e"/>
+        <text x="330" y="198" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="white" font-weight="600">Arm B: BMT</text>
         <!-- V2 -->
-        <circle cx="420" cy="120" r="13" fill="#3a6b8a" stroke="#fff" stroke-width="2"/>
-        <text x="420" y="124" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="white" font-weight="700">V2</text>
-        <text x="420" y="148" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="#3a6b8a" font-weight="600">Zwischen-U · M3</text>
-        <text x="420" y="159" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7.5" fill="#7a7a7a">Safety · AEs · Diary</text>
-
+        <circle cx="430" cy="155" r="22" fill="#3a6b8a" stroke="#fff" stroke-width="2.5"/>
+        <text x="430" y="160" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" fill="white" font-weight="700">V2</text>
+        <text x="430" y="196" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="#3a6b8a" font-weight="600">Zwischenunters. · M3</text>
+        <text x="430" y="213" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="#7a7a7a">Safety · AEs · Diary</text>
         <!-- V3 -->
-        <circle cx="562" cy="120" r="13" fill="#3a6b8a" stroke="#fff" stroke-width="2"/>
-        <text x="562" y="124" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="white" font-weight="700">V3</text>
-        <text x="562" y="148" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="#3a6b8a" font-weight="600">Primäranalyse · M6</text>
-        <text x="562" y="159" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7.5" fill="#7a7a7a">Full assessment · LEDD</text>
-
+        <circle cx="580" cy="155" r="22" fill="#3a6b8a" stroke="#fff" stroke-width="2.5"/>
+        <text x="580" y="160" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" fill="white" font-weight="700">V3</text>
+        <text x="580" y="196" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="#3a6b8a" font-weight="600">Primäranalyse · M6</text>
+        <text x="580" y="213" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="#7a7a7a">Full assessment · LEDD</text>
         <!-- V4 -->
-        <circle cx="757" cy="120" r="13" fill="#2e7d5e" stroke="#fff" stroke-width="2"/>
-        <text x="757" y="124" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="white" font-weight="700">V4</text>
-        <text x="757" y="148" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="#2e7d5e" font-weight="600">Follow-up · M18</text>
-        <text x="757" y="159" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7.5" fill="#7a7a7a">BMT → opt. LECIG</text>
+        <circle cx="762" cy="155" r="22" fill="#2e7d5e" stroke="#fff" stroke-width="2.5"/>
+        <text x="762" y="160" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" fill="white" font-weight="700">V4</text>
+        <text x="762" y="196" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="#2e7d5e" font-weight="600">Follow-up · M18</text>
+        <text x="762" y="213" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="#7a7a7a">BMT → opt. LECIG</text>
+        <!-- BMT note -->
+        <text x="660" y="132" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11.5" fill="#2e7d5e" font-style="italic">BMT → opt. LECIG ab M6</text>
       </svg>
     </div>
 
