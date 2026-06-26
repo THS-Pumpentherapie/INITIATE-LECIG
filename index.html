@@ -1,0 +1,1691 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>INITIATE-LECIG</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:          #f5f4f1;
+      --surface:     #ffffff;
+      --border:      #dddbd6;
+      --accent:      #3a6b8a;
+      --accent-dark: #284d65;
+      --accent-light:#e8f0f6;
+      --text:        #1a1a1a;
+      --text-mid:    #4a4a4a;
+      --text-soft:   #7a7a7a;
+      --error:       #c0392b;
+      --success:     #2e7d5e;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── NAV ─────────────────────────────────────── */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      letter-spacing: .03em;
+      color: var(--accent-dark);
+      text-decoration: none;
+    }
+
+    .nav-logo span {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    nav {
+      display: flex;
+      gap: .4rem;
+    }
+
+    .nav-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      padding: .45rem .9rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .82rem;
+      font-weight: 500;
+      color: var(--text-mid);
+      cursor: pointer;
+      transition: background .18s, border-color .18s, color .18s;
+      white-space: nowrap;
+    }
+
+    .nav-btn:hover,
+    .nav-btn.active {
+      background: var(--accent-light);
+      border-color: var(--accent);
+      color: var(--accent-dark);
+    }
+
+    /* ── PAGES ───────────────────────────────────── */
+    .page { display: none; }
+    .page.visible { display: block; }
+
+    /* ── HERO (main page) ────────────────────────── */
+    .hero {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 5rem 2rem 3rem;
+    }
+
+    .hero-label {
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 3.2vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--text);
+      max-width: 100%;
+      margin-bottom: .6rem;
+    }
+
+    .hero h1 em {
+      color: var(--accent);
+      font-style: italic;
+      font-weight: 700;
+    }
+
+    .hero-lead {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--text-mid);
+      max-width: 100%;
+      margin-bottom: 2.8rem;
+      text-align: justify;
+    }
+
+    .divider {
+      width: 60px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+      margin-bottom: 3rem;
+    }
+
+    /* ── INFO CARDS ──────────────────────────────── */
+    .cards-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem 4rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: box-shadow .2s, transform .2s;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .card:hover {
+      box-shadow: 0 6px 24px rgba(58,107,138,.12);
+      transform: translateY(-2px);
+    }
+
+    .card-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--accent-light);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+    }
+
+    .card-icon svg { width: 20px; height: 20px; stroke: var(--accent); }
+
+    .card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.15rem;
+      margin-bottom: .6rem;
+    }
+
+    .card p {
+      font-size: .9rem;
+      line-height: 1.7;
+      color: var(--text-mid);
+      text-align: justify;
+    }
+
+    /* ── STUDY DETAILS SECTION ───────────────────── */
+    .section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 2rem 4rem;
+    }
+
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.7rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .section-body {
+      font-size: .95rem;
+      line-height: 1.8;
+      color: var(--text-mid);
+      max-width: 100%;
+      text-align: justify;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6rem;
+      margin-top: 1.8rem;
+    }
+
+    .tag {
+      background: var(--accent-light);
+      color: var(--accent-dark);
+      border: 1px solid #c0d8e8;
+      border-radius: 20px;
+      padding: .3rem .9rem;
+      font-size: .8rem;
+      font-weight: 500;
+    }
+
+    /* ── KONTAKT PAGE ────────────────────────────── */
+    .kontakt-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 4rem 2rem 5rem;
+    }
+
+    .page-label {
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: .8rem;
+    }
+
+    .kontakt-wrap h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.2rem;
+      margin-bottom: .8rem;
+    }
+
+    .kontakt-lead {
+      font-size: .95rem;
+      line-height: 1.7;
+      color: var(--text-mid);
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── FORM ────────────────────────────────────── */
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+
+    @media (max-width: 540px) { .form-row { grid-template-columns: 1fr; } }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: .4rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .field label {
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .field label .req {
+      color: var(--accent);
+      margin-left: 2px;
+    }
+
+    .field label .opt {
+      color: var(--text-soft);
+      font-weight: 400;
+      font-size: .78rem;
+      margin-left: 4px;
+    }
+
+    .field input,
+    .field textarea {
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: .65rem .9rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .9rem;
+      color: var(--text);
+      background: var(--surface);
+      transition: border-color .18s, box-shadow .18s;
+      outline: none;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(58,107,138,.12);
+    }
+
+    .field input.error,
+    .field textarea.error {
+      border-color: var(--error);
+      box-shadow: 0 0 0 3px rgba(192,57,43,.1);
+    }
+
+    .field textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .error-msg {
+      font-size: .78rem;
+      color: var(--error);
+      display: none;
+    }
+
+    .error-msg.visible { display: block; }
+
+    /* submit */
+    .btn-send {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: .75rem 1.6rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .9rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: .4rem;
+      transition: background .18s, transform .15s;
+    }
+
+    .btn-send:hover { background: var(--accent-dark); transform: translateY(-1px); }
+
+    /* back button */
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: transparent;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: .65rem 1.3rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .85rem;
+      font-weight: 500;
+      color: var(--text-mid);
+      cursor: pointer;
+      margin-top: 2.2rem;
+      transition: border-color .18s, color .18s, background .18s;
+    }
+
+    .btn-back:hover {
+      border-color: var(--accent);
+      color: var(--accent-dark);
+      background: var(--accent-light);
+    }
+
+    /* ── PLACEHOLDER PAGES ───────────────────────── */
+    .placeholder {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    .placeholder h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .placeholder p {
+      font-size: .95rem;
+      color: var(--text-soft);
+    }
+
+    /* ── GLOBAL BODY TEXT JUSTIFY & SUBPAGE TITLES ── */
+    /* All running prose paragraphs */
+    p { text-align: justify; }
+    /* Subpage h1 titles: compact, max 2 lines */
+    .page > div > h1,
+    .page > div > div > h1 {
+      font-size: clamp(1.5rem, 2.4vw, 2rem) !important;
+      line-height: 1.25 !important;
+      max-width: 100% !important;
+    }
+    /* Subpage lead / intro paragraphs fill full width */
+    .page > div > p {
+      max-width: 100% !important;
+    }
+    /* All inline-styled paragraphs inside subpages should also justify */
+    .page p,
+    .section-body p,
+    .hero-lead {
+      text-align: justify;
+    }
+    /* Don't justify centered elements or captions */
+    .placeholder p,
+    footer,
+    .card-icon + *,
+    [style*="text-align:center"] p {
+      text-align: inherit;
+    }
+
+    /* ── NPS ROWS ────────────────────────────────── */
+    .nps-row {
+      display: grid;
+      grid-template-columns: 44px 200px 1fr;
+      align-items: center;
+      gap: 1rem;
+      padding: .85rem 1.6rem;
+      border-bottom: 1px solid var(--border);
+      transition: background .15s;
+    }
+    .nps-row:last-child { border-bottom: none; }
+    .nps-alt { background: var(--bg); }
+    .nps-row:hover { background: var(--accent-light); }
+    .nps-icon-wrap {
+      width: 38px;
+      height: 38px;
+      background: var(--accent-light);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .nps-icon-wrap svg { width: 20px; height: 20px; }
+    .nps-label {
+      font-size: .88rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .nps-desc {
+      font-size: .84rem;
+      line-height: 1.6;
+      color: var(--text-mid);
+      text-align: left;
+    }
+    @media (max-width: 600px) {
+      .nps-row { grid-template-columns: 38px 1fr; grid-template-rows: auto auto; }
+      .nps-desc { grid-column: 1 / -1; }
+    }
+
+    /* ── FOOTER ──────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      padding: 1.8rem 2rem;
+      text-align: center;
+      font-size: .78rem;
+      color: var(--text-soft);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER / NAV ──────────────────────────────── -->
+<header>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#" onclick="showPage('home')">
+      INITIATE-<span>LECIG</span>
+    </a>
+    <nav>
+      <button class="nav-btn active" onclick="showPage('home')"    id="btn-home">INITIATE-LECIG</button>
+      <button class="nav-btn"        onclick="showPage('patienten')" id="btn-patienten">Patienten/Angehörige</button>
+      <button class="nav-btn"        onclick="showPage('aerzte')"  id="btn-aerzte">Ärztliches Personal</button>
+      <button class="nav-btn"        onclick="showPage('tport')"   id="btn-tport">T-Port</button>
+      <button class="nav-btn"        onclick="showPage('kontakt')" id="btn-kontakt">Kontakt</button>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- PAGE: HOME                                      -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="page visible" id="page-home">
+
+  <div class="hero">
+    <p class="hero-label">Klinische Studie · Universitätsklinikum Tübingen</p>
+    <h1 style="text-align:center;"><em>Kontrolle. Verloren. Wiederfinden</em><br/>Wenn der Dopamin-Spiegel das Leben bestimmt</h1>
+    <p style="font-size:1.08rem;font-weight:400;color:var(--text-mid);line-height:1.6;margin-bottom:1.4rem;">
+      Studie zur Behandlung von <strong style="color:var(--text);">dopaminerger Desensitivierung</strong> und <strong style="color:var(--text);">Neuropsychiatrischen Komplikationen</strong> bei der <strong style="color:var(--text);">Parkinson-Krankheit</strong>
+    </p>
+    <p class="hero-lead">
+      Auch, wenn sie nicht störend wirken, können bei einem Teil der Parkinson Patienten unter oraler Medikation ausgelöste Verhaltensänderungen langfristig zu großen Problemen führen. Diese Verhaltensveränderungen sind durch Impulskontrollstörungen, dem Dopamin-Dysregulationssyndrom und sich häufig wiederholende Tätigkeiten ohne konkretes Ziel (Punding) gekennzeichnet. Die Universitätsklinik untersucht in der INITIATE-LECIG Studie die Wirksamkeit einer intestinalen Levodopa-/Entacapon-Infusion (LECIG) mittels implantierbarer Pumpe bei Patienten mit fortgeschrittener Parkinson-Krankheit.
+    </p>
+  </div>
+
+  <!-- COLLAGE + CARDS SIDE BY SIDE -->
+  <div style="max-width:900px;margin:0 auto 2.5rem;padding:0 2rem;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;align-items:stretch;">
+
+      <!-- LEFT: collage image -->
+      <img src="impulskontrolle_collage.jpg"
+           alt="Impulskontrollstörungen bei der Parkinson-Krankheit"
+           style="width:100%;border-radius:10px;display:block;box-shadow:0 4px 20px rgba(0,0,0,.10);object-fit:cover;"/>
+
+      <!-- RIGHT: three cards stacked, flush with image top/bottom -->
+      <div style="display:flex;flex-direction:column;gap:1.2rem;min-height:0;">
+
+        <div class="card" onclick="showPage('patienten')" style="cursor:pointer;flex:1;margin:0;min-height:0;padding:1.2rem 1.3rem;border-radius:10px;">
+          <div class="card-icon" style="width:32px;height:32px;margin-bottom:.7rem;">
+            <svg fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3 style="font-size:.95rem;margin-bottom:.4rem;">Patienten / Angehörige</h3>
+          <p style="font-size:.82rem;line-height:1.5;">Informationen zur Studie, zum Ablauf und zur Teilnahme – verständlich erklärt.</p>
+          <p style="margin-top:.6rem;font-size:.78rem;font-weight:600;color:var(--accent);">Mehr erfahren →</p>
+        </div>
+
+        <div class="card" onclick="showPage('aerzte')" style="cursor:pointer;flex:1;margin:0;min-height:0;padding:1.2rem 1.3rem;border-radius:10px;">
+          <div class="card-icon" style="width:32px;height:32px;margin-bottom:.7rem;">
+            <svg fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+          </div>
+          <h3 style="font-size:.95rem;margin-bottom:.4rem;">Ärztliches Personal</h3>
+          <p style="font-size:.82rem;line-height:1.5;">Fachliche Hintergrundinformationen, Studienprotokolle und klinische Ressourcen.</p>
+          <p style="margin-top:.6rem;font-size:.78rem;font-weight:600;color:var(--accent);">Mehr erfahren →</p>
+        </div>
+
+        <div class="card" onclick="showPage('tport')" style="cursor:pointer;flex:1;margin:0;min-height:0;padding:1.2rem 1.3rem;border-radius:10px;">
+          <div class="card-icon" style="width:32px;height:32px;margin-bottom:.7rem;">
+            <svg fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/>
+              <rect x="9" y="3" width="6" height="4" rx="1"/>
+              <path d="M9 12h6M9 16h4"/>
+            </svg>
+          </div>
+          <h3 style="font-size:.95rem;margin-bottom:.4rem;">T-Port</h3>
+          <p style="font-size:.82rem;line-height:1.5;">Informationen zur T-Port-Technologie und deren Rolle im Rahmen der Pumpentherapie.</p>
+          <p style="margin-top:.6rem;font-size:.78rem;font-weight:600;color:var(--accent);">Mehr erfahren →</p>
+        </div>
+
+      </div><!-- /right column -->
+    </div><!-- /grid -->
+  </div><!-- /collage+cards -->
+
+  <!-- ── WISSENSCHAFTLICHER HINTERGRUND ──────────────── -->
+  <div class="section" style="padding-bottom:2rem;">
+    <h2 class="section-title">Wissenschaftlicher Hintergrund</h2>
+    <div class="section-body">
+      <p>
+        Im fortgeschrittenen Stadium der Parkinson-Krankheit führt die langjährige orale Levodopa-Therapie
+        bei einem Teil der Patienten zu einer <strong>dopaminergen Sensitivierung</strong>: Das dopaminerge System reagiert
+        zunehmend überempfindlich auf die Medikamente. Die Folge sind nicht nur
+        motorische Fluktuationen, sondern auch ein breites Spektrum <strong>neuropsychiatrischer
+        Komplikationen</strong>, die die Lebensqualität und das soziale Umfeld der Betroffenen
+        erheblich beeinträchtigen können.
+      </p>
+      <br/>
+      <p>
+        Zu den klinisch bedeutsamsten Symptomen zählen hypomanische und manische Verstimmungen,
+        psychotische Episoden sowie ausgeprägte <strong>medikamenten-bedingte Verhaltensweisen</strong> —
+        darunter Impulskontrollstörungen wie Kauf-, Spiel- und Ess-Attacken, Gesteigerte Sexualität,
+        nächtliche Überaktivität und zwanghafter Beschäftigungsdrang (Punding). Diese Symptome
+        werden durch Dopaminagonisten und die pulsatile Levodopa-Zufuhr begünstigt und stellen
+        eine der zentralen therapeutischen Herausforderungen im Krankheitsverlauf dar.
+      </p>
+      <br/>
+      <p>
+        Die INITIATE-LECIG-Studie untersucht, ob die kontinuierliche, nicht-pulsatile intestinale
+        Levodopa-Infusion (LECIG) diese neuropsychiatrischen Komplikationen günstig beeinflusst —
+        durch Reduktion der dopaminergen Überaktivierung und Deeskalation neuropsychiatrisch
+        belastender Komedikationen.
+      </p>
+    </div>
+  </div>
+
+  <!-- ── NPS SECTION ─────────────────────────────────── -->
+  <div style="max-width:1200px;margin:0 auto;padding:0 2rem 4rem;">
+    <div style="width:60px;height:3px;background:var(--accent);border-radius:2px;margin-bottom:2rem;"></div>
+    <h2 style="font-family:'DM Serif Display',serif;font-size:1.7rem;margin-bottom:.6rem;">Neuropsychiatrische Komplikationen</h2>
+    <p style="font-size:.93rem;color:var(--text-mid);margin-bottom:2rem;line-height:1.7;">Medikamenten-bedingte Verhaltensweisen und Impulskontrollstörungen im Überblick</p>
+
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;">
+      <!-- header row -->
+      <div style="background:var(--accent-light);border-bottom:1px solid var(--border);padding:.85rem 1.6rem;display:grid;grid-template-columns:44px 160px 1fr;align-items:center;gap:1rem;">
+        <span></span>
+        <span style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);">Symptom</span>
+        <span style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);">Beschreibung</span>
+      </div>
+
+      <!-- rows -->
+      <div id="nps-rows">
+
+        <!-- 1 Nächtliche Überaktivität -->
+        <div class="nps-row">
+          <div class="nps-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </div>
+          <span class="nps-label">Nächtliche Überaktivität</span>
+          <span class="nps-desc">Gesteigerter Antrieb und Aktivität in der Nacht, Schlaflosigkeit und nächtliches Umherwandern.</span>
+        </div>
+
+        <!-- 2 Tagesschläfrigkeit -->
+        <div class="nps-row nps-alt">
+          <div class="nps-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+              <path d="M8 18s1-2 4-2 4 2 4 2"/>
+            </svg>
+          </div>
+          <span class="nps-label">Tagesschläfrigkeit</span>
+          <span class="nps-desc">Übermäßiges Schlafbedürfnis und ungewolltes Einschlafen tagsüber, teils ohne Vorwarnung.</span>
+        </div>
+
+        <!-- 3 Essstörung -->
+        <div class="nps-row">
+          <div class="nps-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+              <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+              <line x1="6" y1="1" x2="6" y2="4"/>
+              <line x1="10" y1="1" x2="10" y2="4"/>
+              <line x1="14" y1="1" x2="14" y2="4"/>
+            </svg>
+          </div>
+          <span class="nps-label">Ess-Attacken</span>
+          <span class="nps-desc">Unkontrollierte Ess-Attacken und Heißhunger, häufig auf süße oder kalorienreiche Speisen, teilweise auch nachts.</span>
+        </div>
+
+        <!-- 4 Kreativität -->
+        <div class="nps-row nps-alt">
+          <div class="nps-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="13.5" cy="6.5" r="2.5"/>
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <path d="M19 8l-2 2-2-2 2-2 2 2z"/>
+              <path d="M22 5l-1 1"/>
+            </svg>
+          </div>
+          <span class="nps-label">Kreativität</span>
+          <span class="nps-desc">Zwanghafte Beschäftigung mit künstlerischen oder handwerklichen Tätigkeiten, Ideenflut und gesteigerter Schaffensdrang.</span>
+        </div>
+
+        <!-- 5 Drang / Sucht nach Beschäftigung -->
+        <div class="nps-row">
+          <div class="nps-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+          </div>
+          <span class="nps-label">Drang oder Sucht nach Beschäftigung</span>
+          <span class="nps-desc">Zwanghaftes Bedürfnis, ständig aktiv zu sein; Unfähigkeit zur Ruhe trotz körperlicher Erschöpfung.</span>
+        </div>
+
+        <!-- 6 Punding -->
+        <div class="nps-row nps-alt">
+          <div class="nps-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="17 1 21 5 17 9"/>
+              <path d="M3 11V9a4 4 0 0 1 4-4h14"/>
+              <polyline points="7 23 3 19 7 15"/>
+              <path d="M21 13v2a4 4 0 0 1-4 4H3"/>
+            </svg>
+          </div>
+          <span class="nps-label">Punding</span>
+          <span class="nps-desc">Handlungen wie beispielsweise Sortieren, Zerlegen oder Ordnen von Gegenständen über Stunden hinweg, um ihrer Selbstwillen ohne übergeordnetes Ziel.</span>
+        </div>
+
+        <!-- 7 Risikoverhalten -->
+        <div class="nps-row">
+          <div class="nps-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+              <line x1="12" y1="9" x2="12" y2="13"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+          </div>
+          <span class="nps-label">Risikoverhalten</span>
+          <span class="nps-desc">Leichtsinnige, gefährliche Handlungen ohne angemessene Risikoabwägung, z.B. rücksichtsloses Fahren.</span>
+        </div>
+
+        <!-- 8 Kaufsucht -->
+        <div class="nps-row nps-alt">
+          <div class="nps-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+              <line x1="3" y1="6" x2="21" y2="6"/>
+              <path d="M16 10a4 4 0 0 1-8 0"/>
+            </svg>
+          </div>
+          <span class="nps-label">Kaufsucht</span>
+          <span class="nps-desc">Unkontrollierbarer Drang zu kaufen, häufig ohne Bedarf, mit erheblichen finanziellen Folgen.</span>
+        </div>
+
+        <!-- 9 Spielsucht -->
+        <div class="nps-row">
+          <div class="nps-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="7" width="20" height="15" rx="2" ry="2"/>
+              <polyline points="17 2 12 7 7 2"/>
+              <circle cx="8" cy="14" r="1.5" fill="var(--accent)"/>
+              <circle cx="12" cy="11" r="1.5" fill="var(--accent)"/>
+              <circle cx="16" cy="14" r="1.5" fill="var(--accent)"/>
+              <circle cx="12" cy="17" r="1.5" fill="var(--accent)"/>
+            </svg>
+          </div>
+          <span class="nps-label">Spielsucht</span>
+          <span class="nps-desc">Unkontrollierbares Glücksspiel, ohne Rücksicht auf finanzielle Nachteile.</span>
+        </div>
+
+        <!-- 10 Übermäßige Sexualität -->
+        <div class="nps-row nps-alt">
+          <div class="nps-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
+          <span class="nps-label">Übermäßige Sexualität</span>
+          <span class="nps-desc">Gesteigertes, unkontrollierbares sexuelles Verlangen.</span>
+        </div>
+
+        <!-- 11 Sucht nach dopaminergen Substanzen -->
+        <div class="nps-row">
+          <div class="nps-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+              <path d="M3.22 12H9.5l.5-1 2 4 .5-1 2-6 .5 2h6.27"/>
+            </svg>
+          </div>
+          <span class="nps-label">Gesteigertes Verlangen nach dopaminergen Substanzen</span>
+          <span class="nps-desc">Mehrkonsum von Parkinson-Medikamenten weit über die verordnete Dosis hinaus (Dopamin-Dysregulationssyndrom).</span>
+        </div>
+
+      </div><!-- /nps-rows -->
+    </div><!-- /card -->
+  </div><!-- /NPS section -->
+
+  <!-- ── STUDIENZENTREN ─────────────────────────── -->
+  <div class="section">
+    <h2 class="section-title">Studienzentren</h2>
+    <div class="section-body">
+      <p>
+        Die Studie wird an bis zu <strong>20 erfahrenen Parkinson-Expertenzentren</strong> in Deutschland
+        und Österreich durchgeführt, die sowohl klinische Expertise als auch eine gute geographische
+        Abdeckung ihrer Versorgungsgebiete gewährleisten. In zwei Stufen werden insgesamt
+        <strong>150 Patienten</strong> eingeschlossen (76 + 74). Patienten können dabei einem heimatnahen Zentrum zugewiesen werden. 
+        Die Mehrzahl der geplanten Zentren wird im Laufe des Jahres 2026 aktiviert.
+      </p>
+    </div>
+
+    <!-- MAP + LIST side by side -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2rem;align-items:start;">
+
+      <!-- MAP IMAGE -->
+      <div>
+        <img src="studienzentren_map.png"
+             alt="Geographische Verteilung der INITIATE-LECIG-Studienzentren in Deutschland und Österreich"
+             style="width:100%;border-radius:12px;border:1px solid var(--border);display:block;"/>
+
+      </div>
+
+      <!-- CENTRE LIST -->
+      <div>
+        <p style="font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;">
+          Bestätigte Zentren
+        </p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:.55rem;">
+          <li style="display:flex;align-items:baseline;gap:.6rem;font-size:.88rem;color:var(--text-mid);">
+            <span style="width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:3px;display:inline-block;"></span>
+            Parkinsonklinik Ortenau, Wolfach
+          </li>
+          <li style="display:flex;align-items:baseline;gap:.6rem;font-size:.88rem;color:var(--text-mid);">
+            <span style="width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:3px;display:inline-block;"></span>
+            DRK Krankenhaus Saarlouis
+          </li>
+          <li style="display:flex;align-items:baseline;gap:.6rem;font-size:.88rem;color:var(--text-mid);">
+            <span style="width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:3px;display:inline-block;"></span>
+            Ernst von Bergmann Klinikum Potsdam
+          </li>
+          <li style="display:flex;align-items:baseline;gap:.6rem;font-size:.88rem;color:var(--text-mid);">
+            <span style="width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:3px;display:inline-block;"></span>
+            Krankenhaus Agatharied
+          </li>
+          <li style="display:flex;align-items:baseline;gap:.6rem;font-size:.88rem;color:var(--text-mid);">
+            <span style="width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:3px;display:inline-block;"></span>
+            Charité Berlin
+          </li>
+          <li style="display:flex;align-items:baseline;gap:.6rem;font-size:.88rem;color:var(--text-mid);">
+            <span style="width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:3px;display:inline-block;"></span>
+            Knappschaft Kliniken Bottrop
+          </li>
+          <li style="display:flex;align-items:baseline;gap:.6rem;font-size:.88rem;color:var(--text-mid);">
+            <span style="width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:3px;display:inline-block;"></span>
+            Universitätsklinikum Münster
+          </li>
+          <li style="display:flex;align-items:baseline;gap:.6rem;font-size:.88rem;color:var(--text-mid);">
+            <span style="width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:3px;display:inline-block;"></span>
+            Universitätsklinikum Düsseldorf
+          </li>
+          <li style="display:flex;align-items:baseline;gap:.6rem;font-size:.88rem;color:var(--text-mid);">
+            <span style="width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:3px;display:inline-block;"></span>
+            Cellitinen Krankenhaus St. Marien Köln
+          </li>
+          <li style="display:flex;align-items:baseline;gap:.6rem;font-size:.88rem;color:var(--text-mid);">
+            <span style="width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:3px;display:inline-block;"></span>
+            Universitätsklinikum Dresden
+          </li>
+          <li style="display:flex;align-items:baseline;gap:.6rem;font-size:.88rem;color:var(--text-mid);">
+            <span style="width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:3px;display:inline-block;"></span>
+            Universitätsklinikum Marburg
+          </li>
+          <li style="display:flex;align-items:baseline;gap:.6rem;font-size:.88rem;color:var(--text-mid);">
+            <span style="width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:3px;display:inline-block;"></span>
+            Universitätsklinikum Rostock
+          </li>
+          <li style="display:flex;align-items:baseline;gap:.6rem;font-size:.88rem;color:var(--text-mid);">
+            <span style="width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:3px;display:inline-block;"></span>
+            Universitätsklinikum Jena
+          </li>
+          <li style="display:flex;align-items:baseline;gap:.6rem;font-size:.88rem;color:var(--text);">
+            <span style="width:9px;height:9px;border-radius:50%;background:var(--accent-dark);flex-shrink:0;margin-top:3px;display:inline-block;"></span>
+            <strong>Universitätsklinikum Tübingen</strong> <em style="font-size:.78rem;color:var(--text-soft);">(Koordinierend)</em>
+          </li>
+          <li style="display:flex;align-items:baseline;gap:.6rem;font-size:.88rem;color:var(--text-mid);">
+            <span style="width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:3px;display:inline-block;"></span>
+            Universitätsklinikum Klagenfurt am Wörthersee (Österreich)
+          </li>
+        </ul>
+        <p style="font-size:.78rem;color:var(--text-soft);margin-top:1.2rem;font-style:italic;">
+          
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── KONTAKT-HINWEIS BOX ───────────────────────── -->
+  <div class="section" style="padding-bottom:1rem;">
+    <div style="background:var(--accent-light);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:12px;padding:1.6rem 2rem;display:flex;align-items:center;gap:1.4rem;">
+      <div style="flex-shrink:0;">
+        <svg width="32" height="32" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+      </div>
+      <p style="font-size:.92rem;line-height:1.7;color:var(--text-mid);margin:0;">
+        Sollte die Studie Ihnen zusprechen oder Sie weitere Informationen erhalten möchten, schreiben Sie uns eine kurze E-Mail über das
+        <a href="#" onclick="showPage('kontakt')" style="color:var(--accent);font-weight:700;text-decoration:none;">Kontaktformular</a>.
+        Unsere Studienkoordinatorin wird sich in Kürze bei Ihnen melden.
+      </p>
+    </div>
+  </div>
+
+  <!-- ── ADMINISTRATIVE ANGABEN ─────────────────── -->
+  <div class="section" style="padding-bottom:5rem;">
+    <h2 class="section-title">Administrative Angaben</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:1rem;">
+
+      <!-- Registrierung -->
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.8rem;">
+        <p style="font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;">Studienregistrierung</p>
+        <table style="width:100%;border-collapse:collapse;font-size:.88rem;">
+          <tr>
+            <td style="padding:.45rem 0;color:var(--text-soft);white-space:nowrap;padding-right:1rem;">EU CT Nr.</td>
+            <td style="padding:.45rem 0;color:var(--text);font-weight:500;">2025-521048-39-00</td>
+          </tr>
+          <tr style="border-top:1px solid var(--border);">
+            <td style="padding:.45rem 0;color:var(--text-soft);padding-right:1rem;">ClinicalTrials.gov</td>
+            <td style="padding:.45rem 0;color:var(--text);font-weight:500;">NCT07151378</td>
+          </tr>
+        </table>
+        <p style="font-size:.78rem;color:var(--text-soft);margin-top:1.2rem;">
+          Finanzielle Unterstützung durch<br/>
+          <strong style="color:var(--text);">STADAPHARM GmbH</strong>, Bad Vilbel
+        </p>
+      </div>
+
+      <!-- Verantwortliche -->
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.8rem;">
+        <p style="font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;">Studienleitung</p>
+        <p style="font-size:.88rem;line-height:1.7;color:var(--text-mid);">
+          <strong style="color:var(--text);">Prof. Dr. med. Daniel Weiß</strong><br/>
+          Studienleiter<br/><br/>
+          <strong style="color:var(--text);">Dr. med. Idil Cebi</strong><br/>
+          Studienkoordinatorin
+        </p>
+        <div style="margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid var(--border);font-size:.82rem;line-height:1.7;color:var(--text-mid);">
+          Universitätsklinikum Tübingen<br/>
+          Medizinische Fakultät · Neurologische Klinik<br/>
+          Abt. Neurologie mit Schwerpunkt Neurodegenerative Erkrankungen<br/>
+          Hoppe-Seyler-Str. 3 · 72076 Tübingen
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /page-home -->
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- PAGE: T-PORT                                    -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="page" id="page-tport">
+  <div style="max-width:1300px;margin:0 auto;padding:3.5rem 2rem 5rem;">
+
+    <!-- HEADER -->
+    <p class="page-label">Zugangssystem · Substudie</p>
+    <h1 style="font-family:'DM Serif Display',serif;font-size:clamp(1.5rem,2.4vw,2rem);line-height:1.2;margin-bottom:.8rem;">
+      T-port® <em style="color:var(--accent);font-style:italic;">Enteral Access System</em>
+    </h1>
+    <p style="font-size:.95rem;color:var(--text-mid);line-height:1.75;margin-bottom:2rem;">
+      Im Rahmen von INITIATE-LECIG wird der T-port® erstmals in Deutschland und Österreich als
+      alternatives Zugangssystem zur konventionellen JET-PEG-Sonde eingesetzt — bei einem Teil der
+      Patienten im Rahmen einer begleitenden Substudie.
+    </p>
+    <div class="divider"></div>
+
+    <!-- ══ WAS IST DER T-PORT? ══════════════════════ -->
+    <h2 style="font-family:'DM Serif Display',serif;font-size:1.55rem;margin-bottom:1.2rem;">Was ist der T-port®?</h2>
+
+    <div style="font-size:.93rem;line-height:1.8;color:var(--text-mid);margin-bottom:1.8rem;">
+      <p>
+        Der T-port® ist ein subkutan implantiertes enterales Zugangssystem der Firma
+        <strong>Transcutan AB</strong> (Göteborg, Schweden). Er wird in das Fettgewebe unterhalb der Haut
+        über dem Magen implantiert und ermöglicht über einen stabilen Ankermechanismus
+        die Platzierung einer jejunalen Sonde — ohne offenen Hautkanal wie bei der konventionellen PEG.
+      </p>
+      <p style="margin-top:.9rem;">
+        Das System besteht aus drei Komponenten: der subkutan verankerten
+        <strong>T-port® Base</strong> (Titan), dem aufschraubbaren <strong>T-port® Top</strong>
+        (Edelstahl, Luer-Lock oder ENFit) und dem <strong>enteralen Polyurethan-Katheter</strong>,
+        der über Magen und Jejunum in den Dünndarm führt.
+      </p>
+      <p style="margin-top:.9rem;">
+        Der Verlängerungsschlauch kann zwischen den Infusionen vollständig abgenommen werden —
+        dann ist lediglich das unauffällige T-port® Top sichtbar.
+      </p>
+    </div>
+
+    <!-- PDF link -->
+    <div style="margin-bottom:2.5rem;">
+      <a href="https://transcutan.com/wp-content/uploads/2022/05/Tport-patientinfo-50-1023-SP183-5_DE-Issued_2025-07-03-Web_mail.pdf"
+         target="_blank"
+         style="display:inline-flex;align-items:center;gap:.6rem;background:var(--accent);color:#fff;text-decoration:none;border-radius:8px;padding:.75rem 1.4rem;font-size:.9rem;font-weight:600;transition:background .18s;">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="12" y1="18" x2="12" y2="12"/>
+          <line x1="9" y1="15" x2="15" y2="15"/>
+        </svg>
+        Klicken Sie hier, um mehr Informationen über den T-Port zu erfahren
+      </a>
+    </div>
+
+    <!-- ══ T-PORT vs. PEG VERGLEICH ══════════════════ -->
+    <div style="height:1px;background:var(--border);margin:0 0 2.2rem;"></div>
+    <h2 style="font-family:'DM Serif Display',serif;font-size:1.55rem;margin-bottom:1.2rem;">T-port® versus JET-PEG</h2>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem;">
+      <!-- PEG-J -->
+      <div style="background:#fdf6f0;border:1px solid #e8cdb8;border-radius:12px;padding:1.5rem;">
+        <p style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#a05a2c;margin-bottom:.9rem;">Konventionelle PEG-J</p>
+        <ul style="font-size:.86rem;line-height:1.8;color:var(--text-mid);list-style:none;display:flex;flex-direction:column;gap:.3rem;">
+          <li>⚬ &nbsp;Offener Hautkanal (Fistel) zum Magen</li>
+          <li>⚬ &nbsp;Gastroskopie zur Implantation erforderlich</li>
+          <li>⚬ &nbsp;Dauerhaft sichtbarer, externer Schlauch</li>
+          <li>⚬ &nbsp;Häufigere jejunale Katheterdislokationen</li>
+          <li>⚬ &nbsp;Höhere Stoma-Komplikationsrate</li>
+          <li>⚬ &nbsp;Austausch erfordert erneute Endoskopie</li>
+        </ul>
+      </div>
+      <!-- T-Port -->
+      <div style="background:#f0f7f0;border:1px solid #b8d8b8;border-radius:12px;padding:1.5rem;">
+        <p style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#2e7d5e;margin-bottom:.9rem;">T-port® Enteral Access System</p>
+        <ul style="font-size:.86rem;line-height:1.8;color:var(--text-mid);list-style:none;display:flex;flex-direction:column;gap:.3rem;">
+          <li>✓ &nbsp;Subkutane Base — kein offener Kanal</li>
+          <li>✓ &nbsp;Implantation nur unter Röntgenkontrolle (lokal)</li>
+          <li>✓ &nbsp;Schlauch abnehmbar, wenn nicht in Gebrauch</li>
+          <li>✓ &nbsp;Stabilere Verankerung, seltenere Dislokation</li>
+          <li>✓ &nbsp;Geringere Stomakompl.- &amp; Leckagerate</li>
+          <li>✓ &nbsp;Katheterwechsel ohne Gastroskopie möglich</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Austausch cards -->
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-bottom:2.5rem;">
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.3rem;text-align:center;">
+        <p style="font-family:'DM Serif Display',serif;font-size:2rem;color:var(--accent-dark);line-height:1;">1–2 h</p>
+        <p style="font-size:.78rem;color:var(--text-soft);margin-top:.4rem;">Implantationsdauer<br/>(Lokalanästhesie, wach)</p>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.3rem;text-align:center;">
+        <p style="font-family:'DM Serif Display',serif;font-size:2rem;color:var(--accent-dark);line-height:1;">✓</p>
+        <p style="font-size:.78rem;color:var(--text-soft);margin-top:.4rem;">Katheterwechsel schmerzfrei<br/>ohne Lokal­anästhesie</p>
+      </div>
+    </div>
+
+    <!-- ══ IMPLANTATION ═══════════════════════════════ -->
+    <div style="height:1px;background:var(--border);margin:0 0 2.2rem;"></div>
+    <h2 style="font-family:'DM Serif Display',serif;font-size:1.55rem;margin-bottom:1.2rem;">Implantation &amp; Nachsorge</h2>
+
+    <div style="display:grid;grid-template-columns:1fr;gap:2rem;margin-bottom:2rem;">
+      <!-- Implantation steps -->
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.6rem;">
+        <p style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;">Ablauf der Implantation</p>
+        <div style="display:flex;flex-direction:column;gap:.9rem;">
+          <div style="display:flex;gap:1rem;align-items:flex-start;">
+            <div style="width:26px;height:26px;border-radius:50%;background:var(--accent);color:white;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0;">1</div>
+            <p style="font-size:.85rem;line-height:1.6;color:var(--text-mid);">Nüchtern 6 h; Kontrastmittel 8–12 h vorher; Antibiotikaprophylaxe intraoperativ</p>
+          </div>
+          <div style="display:flex;gap:1rem;align-items:flex-start;">
+            <div style="width:26px;height:26px;border-radius:50%;background:var(--accent);color:white;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0;">2</div>
+            <p style="font-size:.85rem;line-height:1.6;color:var(--text-mid);">Lokalanästhesie; Implantation unter Röntgenkontrolle (keine Gastroskopie)</p>
+          </div>
+          <div style="display:flex;gap:1rem;align-items:flex-start;">
+            <div style="width:26px;height:26px;border-radius:50%;background:var(--accent);color:white;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0;">3</div>
+            <p style="font-size:.85rem;line-height:1.6;color:var(--text-mid);">Trinken ab ca. 6 h postop; Mahlzeit ab nächstem Morgen; LECIG-Infusion sobald Station freigegeben</p>
+          </div>
+          <div style="display:flex;gap:1rem;align-items:flex-start;">
+            <div style="width:26px;height:26px;border-radius:50%;background:var(--accent);color:white;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0;">4</div>
+            <p style="font-size:.85rem;line-height:1.6;color:var(--text-mid);">Wundkontrolle nach 3 Wochen; Fadenentfernung; vollständige Einheilung nach ca. 3 Monaten</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ══ TÄGLICHE PFLEGE ════════════════════════════ -->
+    <div style="height:1px;background:var(--border);margin:0 0 2.2rem;"></div>
+    <h2 style="font-family:'DM Serif Display',serif;font-size:1.55rem;margin-bottom:1.2rem;">Tägliche Stomapflege</h2>
+
+    <p style="font-size:.92rem;line-height:1.75;color:var(--text-mid);margin-bottom:1.5rem;">
+      Regelmäßige Pflege ist entscheidend für die Lebensdauer des T-port® und zur Vermeidung von
+      Stomainfektionen. Morgens und abends reinigen, stets gründlich trocknen. Den Katheter nach
+      Gebrauch mit 20–40 ml Trinkwasser spülen.
+    </p>
+
+
+
+    <!-- MRT Hinweis -->
+    <div style="background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:10px;padding:1.3rem 1.6rem;margin-bottom:2.5rem;">
+      <p style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem;">MRT-Kompatibilität &amp; Implantationsausweis</p>
+      <p style="font-size:.88rem;line-height:1.75;color:var(--text-mid);">
+        Da der T-port® Metall enthält (Titan-Base, Edelstahl-Top), müssen behandelnde Ärzte
+        vor jeder MRT-Untersuchung über das Implantat informiert werden. Patienten erhalten einen
+        <strong>Implantationsausweis</strong> (T-port® Implant Card, Transcutan AB), der stets
+        mitgeführt werden sollte. Weitere Informationen:
+        <a href="https://www.transcutan.com/T-port" target="_blank" style="color:var(--accent);font-weight:600;">www.transcutan.com/T-port</a>
+      </p>
+    </div>
+
+    <!-- Hersteller -->
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.3rem 1.6rem;margin-bottom:2.5rem;font-size:.85rem;line-height:1.7;color:var(--text-mid);">
+      <p style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem;">Hersteller</p>
+      <strong style="color:var(--text);">Transcutan AB</strong><br/>
+      Lilla Torget 4 · 411 18 Göteborg, Schweden<br/>
+      <a href="mailto:info@transcutan.com" style="color:var(--accent);">info@transcutan.com</a> ·
+      <a href="https://www.transcutan.com/T-port" target="_blank" style="color:var(--accent);">www.transcutan.com/T-port</a><br/>
+      <span style="font-size:.75rem;color:var(--text-soft);">Produktdokumentation: 50-1023/DE (SP183-5/DE), ausgestellt 03.07.2025. CE 0197.</span>
+    </div>
+
+    <!-- Back button -->
+    <button class="btn-back" onclick="showPage('home')">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+        <line x1="19" y1="12" x2="5" y2="12"/>
+        <polyline points="12 19 5 12 12 5"/>
+      </svg>
+      Zurück zur Startseite
+    </button>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- PAGE: PATIENTEN / ANGEHÖRIGE                   -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="page" id="page-patienten">
+  <div style="max-width:1300px;margin:0 auto;padding:3.5rem 2rem 5rem;">
+
+    <!-- PAGE LABEL + TITLE -->
+    <p class="page-label">Für Patienten &amp; Angehörige</p>
+    <h1 style="font-family:'DM Serif Display',serif;font-size:clamp(1.5rem,2.4vw,2rem);line-height:1.2;margin-bottom:.8rem;">
+      Informationen zur <em style="color:var(--accent);font-style:italic;">INITIATE-LECIG</em>-Studie
+    </h1>
+    <p style="font-size:.95rem;color:var(--text-mid);line-height:1.7;margin-bottom:2.2rem;">
+      Diese Seite richtet sich an Patienten mit Parkinson-Krankheit und ihre Angehörigen.
+      Wir möchten Ihnen verständlich erklären, worum es in dieser Studie geht und was eine Teilnahme bedeutet.
+    </p>
+    <div class="divider"></div>
+
+    <!-- ── PROMINENT CALL-OUT BOX ── -->
+    <div style="background:linear-gradient(135deg,#e8f0f6 0%,#d4e6f1 100%);border-left:5px solid var(--accent);border-radius:12px;padding:2rem 2.2rem;margin-bottom:3rem;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:-18px;right:-18px;width:100px;height:100px;background:rgba(58,107,138,.08);border-radius:50%;"></div>
+      <p style="font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;">Diese Studie könnte für Sie relevant sein</p>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:.75rem;">
+        <li style="display:flex;align-items:baseline;gap:.75rem;font-size:.97rem;font-weight:500;line-height:1.65;color:var(--text);">
+          <span style="width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:6px;display:inline-block;opacity:.75;"></span>
+          Werden Ihre Bewegungsschwankungen bei Parkinson mit Medikamenten nicht mehr ausreichend behandelt?
+        </li>
+        <li style="display:flex;align-items:baseline;gap:.75rem;font-size:.97rem;font-weight:500;line-height:1.65;color:var(--text);">
+          <span style="width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:6px;display:inline-block;opacity:.75;"></span>
+          Haben Sie bemerkt, dass Sie manchmal schwer aufhören können mit bestimmten Dingen – zum Beispiel Spielen, Einkaufen oder stundenlangen Wiederholungen – oder dass Sie Parkinsonmedikamente häufiger einnehmen als verordnet?
+        </li>
+      </ul>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 1: HINTERGRUND                     -->
+    <!-- ══════════════════════════════════════════ -->
+    <h2 style="font-family:'DM Serif Display',serif;font-size:1.6rem;margin-bottom:1rem;margin-top:2rem;">Hintergrund der Studie</h2>
+
+    <div style="font-size:.93rem;line-height:1.8;color:var(--text-mid);margin-bottom:1rem;">
+      <p>
+        Bei Parkinson-Krankheit werden Patienten in den ersten Jahren meist gut mit oralen Medikamenten behandelt.
+        Mit fortschreitender Erkrankung kann die Wirkung jedoch nachlassen: Tabletten müssen immer häufiger
+        und in höheren Dosen eingenommen werden, oft in Kombination mehrerer Wirkstoffe.
+      </p>
+      <p style="margin-top:.9rem;">
+        Trotzdem erleben viele Patienten wiederkehrende <strong>Off-Phasen</strong> (schlechte Beweglichkeit)
+        und <strong>On-Phasen mit Überbewegungen</strong>. Beides beeinträchtigt den Alltag und die Lebensqualität erheblich.
+      </p>
+    </div>
+
+    <div style="font-size:.93rem;line-height:1.8;color:var(--text-mid);margin-bottom:1rem;">
+      <p>
+        Zusätzlich können orale Parkinsonmedikamente mit der Zeit <strong>neuropsychiatrische Komplikationen</strong> verursachen:
+      </p>
+      <ul style="margin:.8rem 0 0 1.2rem;display:flex;flex-direction:column;gap:.4rem;">
+        <li>In Off-Phasen: Niedergeschlagenheit, Angst, innere Unruhe, Gereiztheit</li>
+        <li>Im überbeweglichen On: Euphorie, Schlaflosigkeit, nächtliche Aktivität, Ideenflut</li>
+        <li>Impulskontrollstörungen: unkontrolliertes Spielen, Einkaufen, Essen oder sexuelle Aktivität</li>
+      </ul>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 2: ZIELSETZUNG                     -->
+    <!-- ══════════════════════════════════════════ -->
+    <div style="height:1px;background:var(--border);margin:2.5rem 0;"></div>
+    <h2 style="font-family:'DM Serif Display',serif;font-size:1.6rem;margin-bottom:1rem;">Zielsetzung der Studie</h2>
+
+    <div style="font-size:.93rem;line-height:1.8;color:var(--text-mid);margin-bottom:1.8rem;">
+      <p>
+        Die motorische Wirksamkeit der intestinalen Levodopa-Infusion (LECIG) ist gut belegt.
+        Ob diese Therapie auch <strong>neuropsychiatrische Komplikationen</strong> verbessern oder sogar
+        verhindern kann, wurde bisher nicht systematisch untersucht – genau das ist das Ziel von INITIATE-LECIG.
+      </p>
+      <p style="margin-top:.9rem;">
+        LECIG gibt Levodopa <strong>gleichmäßig und kontinuierlich</strong> ab – so wie Dopamin auch beim
+        gesunden Menschen im Gehirn freigesetzt wird. Dies erlaubt eine Reduktion vieler Parkinsonmedikamente,
+        die besonders häufig neuropsychiatrische Nebenwirkungen verursachen (z.&nbsp;B. Dopaminagonisten, Amantadin).
+      </p>
+    </div>
+
+    <!-- What is LECIG box -->
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.6rem;margin-bottom:1.8rem;">
+      <p style="font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.7rem;">Was ist LECIG?</p>
+      <p style="font-size:.9rem;line-height:1.75;color:var(--text-mid);">
+        LECIG ist ein behördlich zugelassenes Medikament (seit 2022 in Deutschland und Österreich) und enthält
+        die Wirkstoffe <strong>Levodopa, Entacapone und Carbidopa</strong>. Es wird über eine Sonde direkt
+        in den Darm abgegeben und hat sich als sicher und wirksam bei motorischen Wirkungsschwankungen erwiesen.
+        Die Anwendung in dieser Studie erfolgt innerhalb der zugelassenen Indikation (<em>„in-label"</em>).
+      </p>
+    </div>
+
+    <!-- Inclusion / Exclusion criteria -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem;">
+      <!-- Inclusion -->
+      <div style="background:#f0f7f0;border:1px solid #b8d8b8;border-radius:12px;padding:1.6rem;">
+        <p style="font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#2e7d5e;margin-bottom:.9rem;">✔ Wer kann teilnehmen?</p>
+        <ul style="font-size:.85rem;line-height:1.75;color:var(--text-mid);list-style:none;display:flex;flex-direction:column;gap:.35rem;">
+          <li>• Parkinson-Diagnose seit ≥ 5 Jahren</li>
+          <li>• Alter 18–75 Jahre, Erkrankungsbeginn vor 65</li>
+          <li>• Aktuelle Behandlung mit L-Dopa + Dopaminagonisten</li>
+          <li>• Motorische Wirkungsschwankungen vorhanden</li>
+          <li>• Neuropsychiatrische Symptome unter oraler Therapie</li>
+          <li>• Freiwillige Zustimmung nach Aufklärung</li>
+        </ul>
+      </div>
+      <!-- Exclusion -->
+      <div style="background:#fdf3f2;border:1px solid #e8c0bb;border-radius:12px;padding:1.6rem;">
+        <p style="font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#c0392b;margin-bottom:.9rem;">✖ Wichtige Ausschlusskriterien</p>
+        <ul style="font-size:.85rem;line-height:1.75;color:var(--text-mid);list-style:none;display:flex;flex-direction:column;gap:.35rem;">
+          <li>• Schwangerschaft oder Stillzeit</li>
+          <li>• Schwere Demenz oder ausgeprägte Verwirrtheit</li>
+          <li>• Akute Psychose ohne Krankheitseinsicht</li>
+          <li>• Bestehende gerätgestützte Therapie (z.B. THS)</li>
+          <li>• Schwere Depression oder akute Suizidalität</li>
+          <li>• Aktive, nicht-remittierte Tumorerkrankung</li>
+        </ul>
+      </div>
+    </div>
+    <p style="font-size:.78rem;color:var(--text-soft);font-style:italic;margin-bottom:2rem;">
+      * Unvollständige Auswahl. Die vollständige Eignungsprüfung erfolgt nach schriftlichem Einverständnis im Rahmen des Studien-Screenings am Zentrum Ihrer Wahl.
+    </p>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 3: STUDIENABLAUF                   -->
+    <!-- ══════════════════════════════════════════ -->
+    <div style="height:1px;background:var(--border);margin:2rem 0 2.5rem;"></div>
+    <h2 style="font-family:'DM Serif Display',serif;font-size:1.6rem;margin-bottom:1.2rem;">Studienablauf</h2>
+
+    <p style="font-size:.93rem;line-height:1.8;color:var(--text-mid);margin-bottom:2rem;">
+      Nach Prüfung der Einschlusskriterien und Ihrer Einwilligung beginnt die Studie mit einer
+      <strong>Baseline-Untersuchung</strong> (Visite 1), gefolgt von einer <strong>Randomisierung</strong>:
+      Sie werden per Zufallsprinzip entweder der LECIG-Gruppe oder der Gruppe mit optimierter oraler Therapie (BMT) zugeteilt –
+      beide Gruppen werden wirksam behandelt.
+    </p>
+
+    <!-- STUDY TIMELINE IMAGE -->
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.4rem 1.2rem;margin-bottom:1.8rem;overflow-x:auto;">
+      <img src="Studiendesign.png" alt="Studienablauf INITIATE-LECIG" style="width:100%;height:auto;display:block;border-radius:8px;"/>
+      <svg viewBox="0 0 820 280" xmlns="http://www.w3.org/2000/svg" style="display:none;width:100%;min-width:680px;height:auto;">
+        <!-- Phase bands -->
+        <rect x="0" y="0" width="820" height="280" rx="0" fill="#f8fafb"/>
+        <rect x="2" y="2" width="114" height="276" rx="6" fill="#f0e8f5" opacity=".55"/>
+        <rect x="120" y="2" width="350" height="276" rx="6" fill="#e8f0f6" opacity=".45"/>
+        <rect x="474" y="2" width="344" height="276" rx="6" fill="#eef7f0" opacity=".45"/>
+        <!-- Phase labels -->
+        <text x="59" y="22" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" fill="#7b4a9a" font-weight="700">Screening</text>
+        <text x="295" y="22" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" fill="#3a6b8a" font-weight="700">Randomisierte Phase — 6 Monate (LECIG vs. BMT)</text>
+        <text x="645" y="22" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" fill="#2e7d5e" font-weight="700">Nachbeobachtung — 12 Monate</text>
+        <!-- Timeline spine -->
+        <line x1="20" y1="145" x2="800" y2="145" stroke="#c8dae6" stroke-width="3"/>
+        <!-- SCR -->
+        <circle cx="59" cy="145" r="22" fill="#7b4a9a" stroke="#fff" stroke-width="2.5"/>
+        <text x="59" y="150" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="white" font-weight="700">SCR</text>
+        <text x="59" y="185" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="#7b4a9a" font-weight="600">Screening</text>
+        <!-- V1 -->
+        <circle cx="220" cy="145" r="22" fill="#284d65" stroke="#fff" stroke-width="2.5"/>
+        <text x="220" y="150" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" fill="white" font-weight="700">V1</text>
+        <text x="220" y="185" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="#284d65" font-weight="600">Baseline · M0</text>
+        <!-- Randomisierung label -->
+        <line x1="220" y1="105" x2="220" y2="123" stroke="#284d65" stroke-width="2" stroke-dasharray="4 3"/>
+        <text x="220" y="98" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="#284d65" font-weight="700">Randomisierung 1:1</text>
+        <!-- Arms split -->
+        <line x1="270" y1="110" x2="270" y2="88" stroke="#3a6b8a" stroke-width="1.8" opacity=".8"/>
+        <line x1="270" y1="110" x2="270" y2="180" stroke="#2e7d5e" stroke-width="1.8" opacity=".8"/>
+        <rect x="278" y="72" width="100" height="26" rx="6" fill="#3a6b8a"/>
+        <text x="328" y="89" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="white" font-weight="600">Arm A: LECIG</text>
+        <rect x="278" y="166" width="100" height="26" rx="6" fill="#2e7d5e"/>
+        <text x="328" y="183" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="white" font-weight="600">Arm B: BMT</text>
+        <!-- V2 -->
+        <circle cx="430" cy="145" r="22" fill="#3a6b8a" stroke="#fff" stroke-width="2.5"/>
+        <text x="430" y="150" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" fill="white" font-weight="700">V2</text>
+        <text x="430" y="185" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="#3a6b8a" font-weight="600">Zwischenunters. · M3</text>
+        <!-- V3 -->
+        <circle cx="580" cy="145" r="22" fill="#3a6b8a" stroke="#fff" stroke-width="2.5"/>
+        <text x="580" y="150" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" fill="white" font-weight="700">V3</text>
+        <text x="580" y="185" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="#3a6b8a" font-weight="600">Primäranalyse · M6</text>
+        <!-- V4 -->
+        <circle cx="762" cy="145" r="22" fill="#2e7d5e" stroke="#fff" stroke-width="2.5"/>
+        <text x="762" y="150" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" fill="white" font-weight="700">V4</text>
+        <text x="762" y="185" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="#2e7d5e" font-weight="600">Follow-up · M18</text>
+        <text x="680" y="120" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11.5" fill="#2e7d5e" font-style="italic">BMT → opt. LECIG ab M6</text>
+      </svg>
+    </div>
+
+    <div style="font-size:.93rem;line-height:1.8;color:var(--text-mid);margin-bottom:1.8rem;">
+      <p>
+        Nach der 6-monatigen randomisierten Phase schließt sich eine <strong>12-monatige offene Nachbeobachtung</strong>
+        an (bis Monat 18). Patienten der LECIG-Gruppe können ihre Therapie fortführen; Patienten der BMT-Gruppe
+        erhalten nun ebenfalls die Möglichkeit, auf LECIG umzusteigen.
+      </p>
+    </div>
+
+    <!-- T-Port note box -->
+    <div style="background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:10px;padding:1.4rem 1.6rem;margin-bottom:2rem;">
+      <p style="font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem;">Neu: T-Port Zugangssystem</p>
+      <p style="font-size:.88rem;line-height:1.75;color:var(--text-mid);">
+        Seit März 2026 steht erstmals das <strong>T-Port</strong>-System als komfortablere Alternative
+        zur konventionellen JET-PEG-Sonde zur Verfügung. Skandinavische Erfahrungen zeigen einen höheren
+        Alltagskomfort und weniger Hardware-Komplikationen. Mehr dazu finden Sie auf der
+        <a href="#" onclick="showPage('tport')" style="color:var(--accent);font-weight:600;">T-Port-Seite</a>.
+      </p>
+    </div>
+
+    <!-- Back button -->
+    <button class="btn-back" onclick="showPage('home')">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+        <line x1="19" y1="12" x2="5" y2="12"/>
+        <polyline points="12 19 5 12 12 5"/>
+      </svg>
+      Zurück zur Startseite
+    </button>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- PAGE: ÄRZTLICHES PERSONAL                      -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="page" id="page-aerzte">
+  <div style="max-width:1300px;margin:0 auto;padding:3.5rem 2rem 5rem;">
+
+    <!-- HEADER -->
+    <p class="page-label">Für Ärztliches Personal &amp; Studienpersonal</p>
+    <h1 style="font-family:'DM Serif Display',serif;font-size:clamp(1.5rem,2.4vw,2rem);line-height:1.2;margin-bottom:.8rem;">
+      INITIATE-LECIG — <em style="color:var(--accent);font-style:italic;">Klinische Studieninformation</em>
+    </h1>
+    <p style="font-size:.93rem;color:var(--text-mid);line-height:1.7;margin-bottom:2rem;">
+      Prospektive, randomisierte, kontrollierte, offene, zweiarmige Parallelgruppenstudie zur Wirksamkeit
+      intestinaler Levodopa-Entacapone-Carbidopa-Infusion (LECIG) auf neuropsychiatrische Komplikationen
+      bei Patienten mit fortgeschrittenem Parkinson-Krankheit.
+    </p>
+
+    <!-- QUICK-STATS BAR -->
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin-bottom:2.5rem;">
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;">
+        <p style="font-family:'DM Serif Display',serif;font-size:2rem;color:var(--accent-dark);line-height:1;">150</p>
+        <p style="font-size:.78rem;color:var(--text-soft);margin-top:.3rem;">Patienten (2 Stufen)</p>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;">
+        <p style="font-family:'DM Serif Display',serif;font-size:2rem;color:var(--accent-dark);line-height:1;">20</p>
+        <p style="font-size:.78rem;color:var(--text-soft);margin-top:.3rem;">Expertenzentren</p>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;">
+        <p style="font-family:'DM Serif Display',serif;font-size:2rem;color:var(--accent-dark);line-height:1;">6</p>
+        <p style="font-size:.78rem;color:var(--text-soft);margin-top:.3rem;">Monate Randomisierte Therapie</p>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;">
+        <p style="font-family:'DM Serif Display',serif;font-size:2rem;color:var(--accent-dark);line-height:1;">12</p>
+        <p style="font-size:.78rem;color:var(--text-soft);margin-top:.3rem;">Monate Nachbeobachtung</p>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;">
+        <p style="font-family:'DM Serif Display',serif;font-size:2rem;color:var(--accent-dark);line-height:1;">1:1</p>
+        <p style="font-size:.78rem;color:var(--text-soft);margin-top:.3rem;">Randomisierung LECIG:BMT</p>
+      </div>
+    </div>
+    <div class="divider"></div>
+
+    <!-- ══ RATIONALE ══════════════════════════════ -->
+    <h2 style="font-family:'DM Serif Display',serif;font-size:1.55rem;margin-bottom:1rem;">Wissenschaftliche Rationale</h2>
+    <div style="font-size:.9rem;line-height:1.8;color:var(--text-mid);margin-bottom:2.5rem;">
+      <p>
+        Pulsatile dopaminerge Stimulation durch orale L-Dopa-Therapie induziert im Verlauf motorische
+        Fluktuationen, Dyskinesien sowie neuropsychiatrische Komplikationen (NPS) — darunter
+        Impulskontrollstörungen (ICD), dopaminerges Dysregulationssyndrom (DDS), Hypersexualität
+        und affektive Off-Phasen-Symptomatik.
+      </p>
+      <p style="margin-top:.9rem;">
+        LECIG ermöglicht eine <strong>kontinuierliche, nicht-pulsatile</strong> jejunale Levodopa-Infusion
+        und erlaubt die Deeskalation von Dopaminagonisten, Amantadin und Anticholinergika —
+        den Haupttreibern neuropsychiatrischer Komplikationen. Die Studienhypothese: rechtzeitige
+        Konversion auf LECIG reduziert NPS-Burden signifikant gegenüber optimierter oraler Therapie (BMT).
+      </p>
+    </div>
+
+    <!-- ══ STUDIENDESIGN ══════════════════════════ -->
+    <div style="height:1px;background:var(--border);margin:0 0 2.2rem;"></div>
+    <h2 style="font-family:'DM Serif Display',serif;font-size:1.55rem;margin-bottom:1.2rem;">Studiendesign &amp; Endpunkte</h2>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:2rem;">
+      <!-- Primary endpoint -->
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.6rem;">
+        <p style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.9rem;">Primärer Endpunkt</p>
+        <p style="font-size:.9rem;line-height:1.7;color:var(--text-mid);">
+          Veränderung des <strong>Ardouin Behaviour Scale (ABS)</strong>-Gesamtscores (dopaminerge
+          Hyperstimulations- und Hypostimulationsskala) gegenüber Baseline nach <strong>6 Monaten</strong>
+          (LECIG vs. BMT).
+        </p>
+      </div>
+      <!-- Secondary endpoints -->
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.6rem;">
+        <p style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.9rem;">Wichtige sekundäre Endpunkte</p>
+        <ul style="font-size:.85rem;line-height:1.75;color:var(--text-mid);list-style:none;display:flex;flex-direction:column;gap:.25rem;">
+          <li>• UPDRS III / MDS-UPDRS (motor)</li>
+          <li>• PDQ-39 (Lebensqualität)</li>
+          <li>• Hauser-Diary Off-Zeit / Dyskinesien</li>
+          <li>• NMS-Scale, BDI-II, QUIP-RS</li>
+          <li>• Kognition (MoCA), Schlaf (PDSS-2)</li>
+          <li>• Medikamentendosis (LEDD-Reduktion)</li>
+          <li>• Sicherheit &amp; Verträglichkeit</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- TIMELINE IMAGE (physician version) -->
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.4rem 1.2rem;margin-bottom:2rem;overflow-x:auto;">
+      <p style="font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.8rem;">Studienablauf &amp; Visiten</p>
+      <img src="Studiendesign.png" alt="Studiendesign & Visiten INITIATE-LECIG" style="width:100%;height:auto;display:block;border-radius:8px;"/>
+      <svg viewBox="0 0 820 310" xmlns="http://www.w3.org/2000/svg" style="display:none;width:100%;min-width:680px;height:auto;">
+        <!-- Phase bands -->
+        <rect x="0" y="0" width="820" height="310" fill="#f8fafb"/>
+        <rect x="2"  y="2" width="114" height="306" rx="6" fill="#f0e8f5" opacity=".55"/>
+        <rect x="120" y="2" width="350" height="306" rx="6" fill="#e8f0f6" opacity=".45"/>
+        <rect x="474" y="2" width="344" height="306" rx="6" fill="#eef7f0" opacity=".45"/>
+        <!-- Phase labels -->
+        <text x="59"  y="22" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" fill="#7b4a9a" font-weight="700">Screening</text>
+        <text x="295" y="22" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" fill="#3a6b8a" font-weight="700">Randomisierte Phase — 6 Monate (LECIG vs. BMT)</text>
+        <text x="645" y="22" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" fill="#2e7d5e" font-weight="700">Open-label Nachbeobachtung — 12 Monate</text>
+        <!-- Timeline spine -->
+        <line x1="20" y1="155" x2="800" y2="155" stroke="#c8dae6" stroke-width="3"/>
+        <!-- SCR -->
+        <circle cx="59" cy="155" r="22" fill="#7b4a9a" stroke="#fff" stroke-width="2.5"/>
+        <text x="59" y="160" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="white" font-weight="700">SCR</text>
+        <text x="59" y="196" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="#7b4a9a" font-weight="600">Screening</text>
+        <text x="59" y="213" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="#7a7a7a">ABS · MoCA · MRI</text>
+        <!-- V1 -->
+        <circle cx="220" cy="155" r="22" fill="#284d65" stroke="#fff" stroke-width="2.5"/>
+        <text x="220" y="160" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" fill="white" font-weight="700">V1</text>
+        <text x="220" y="196" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="#284d65" font-weight="600">Baseline · M0</text>
+        <text x="220" y="213" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="#7a7a7a">UPDRS · PDQ-39 · Labs</text>
+        <!-- Randomisierung label -->
+        <line x1="220" y1="112" x2="220" y2="133" stroke="#284d65" stroke-width="2" stroke-dasharray="4 3"/>
+        <text x="220" y="104" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="#284d65" font-weight="700">Randomisierung 1:1</text>
+        <!-- Arms split -->
+        <line x1="270" y1="120" x2="270" y2="96"  stroke="#3a6b8a" stroke-width="1.8" opacity=".8"/>
+        <line x1="270" y1="120" x2="270" y2="195" stroke="#2e7d5e" stroke-width="1.8" opacity=".8"/>
+        <rect x="278" y="78" width="105" height="28" rx="6" fill="#3a6b8a"/>
+        <text x="330" y="96" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="white" font-weight="600">Arm A: LECIG</text>
+        <rect x="278" y="180" width="105" height="28" rx="6" fill="#2e7d5e"/>
+        <text x="330" y="198" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="white" font-weight="600">Arm B: BMT</text>
+        <!-- V2 -->
+        <circle cx="430" cy="155" r="22" fill="#3a6b8a" stroke="#fff" stroke-width="2.5"/>
+        <text x="430" y="160" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" fill="white" font-weight="700">V2</text>
+        <text x="430" y="196" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="#3a6b8a" font-weight="600">Zwischenunters. · M3</text>
+        <text x="430" y="213" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="#7a7a7a">Safety · AEs · Diary</text>
+        <!-- V3 -->
+        <circle cx="580" cy="155" r="22" fill="#3a6b8a" stroke="#fff" stroke-width="2.5"/>
+        <text x="580" y="160" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" fill="white" font-weight="700">V3</text>
+        <text x="580" y="196" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="#3a6b8a" font-weight="600">Primäranalyse · M6</text>
+        <text x="580" y="213" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="#7a7a7a">Full assessment · LEDD</text>
+        <!-- V4 -->
+        <circle cx="762" cy="155" r="22" fill="#2e7d5e" stroke="#fff" stroke-width="2.5"/>
+        <text x="762" y="160" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" fill="white" font-weight="700">V4</text>
+        <text x="762" y="196" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="#2e7d5e" font-weight="600">Follow-up · M18</text>
+        <text x="762" y="213" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="#7a7a7a">BMT → opt. LECIG</text>
+        <!-- BMT note -->
+        <text x="660" y="132" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11.5" fill="#2e7d5e" font-style="italic">BMT → opt. LECIG ab M6</text>
+      </svg>
+    </div>
+
+    <!-- ══ EIN- / AUSSCHLUSSKRITERIEN ════════════ -->
+    <div style="height:1px;background:var(--border);margin:0 0 2.2rem;"></div>
+    <h2 style="font-family:'DM Serif Display',serif;font-size:1.55rem;margin-bottom:1.2rem;">Ein- &amp; Ausschlusskriterien <span style="font-size:1rem;font-weight:400;color:var(--text-soft);font-family:'DM Sans',sans-serif;">(Auswahl)</span></h2>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:.8rem;">
+      <div style="background:#f0f7f0;border:1px solid #b8d8b8;border-radius:12px;padding:1.5rem;">
+        <p style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#2e7d5e;margin-bottom:.9rem;">Einschlusskriterien</p>
+        <ul style="font-size:.85rem;line-height:1.8;color:var(--text-mid);list-style:none;display:flex;flex-direction:column;gap:.2rem;">
+          <li>• Parkinson-Syndrom ≥ 5 Jahre (einschleßlich genetischer Varianten)</li>
+          <li>• Alter 18–75 J.; Erstmanifestation &lt; 65 Jahre</li>
+          <li>• Aktuelle Therapie mit L-Dopa + Dopaminagonist</li>
+          <li>• Motorische Fluktuationen (≥ 2h Off/Tag im Diary)</li>
+          <li>• Vorhandensein dopaminerger neuropsychiatrischer Fluktuationen</li>
+          <li>• Schriftliche Einwilligungserklärung</li>
+          <li>• Frühere Geräte-gestützte Therapien zulässig sofern beendet bei mind. 3-Monatiger anschließender Oraler Ersatztherapie</li>
+        </ul>
+      </div>
+      <div style="background:#fdf3f2;border:1px solid #e8c0bb;border-radius:12px;padding:1.5rem;">
+        <p style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#c0392b;margin-bottom:.9rem;">Ausschlusskriterien</p>
+        <ul style="font-size:.85rem;line-height:1.8;color:var(--text-mid);list-style:none;display:flex;flex-direction:column;gap:.2rem;">
+          <li>• Demenz (MoCA &lt; 21) od. schwere kognitive Einschränkung</li>
+          <li>• Akute Psychose / Halluzinationen ohne Krankheitseinsicht</li>
+          <li>• Schwere Depression, akute Suizidalität</li>
+          <li>• Bestehende gerätgestützte Therapie (THS, Pumpe)</li>
+          <li>• Aktive, nicht-remittierte Neoplasie</li>
+          <li>• Kontraindikationen gegen JET-PEG-Anlage oder L-Dopa</li>
+          <li>• Schwangerschaft / Stillzeit</li>
+        </ul>
+      </div>
+    </div>
+    <p style="font-size:.75rem;color:var(--text-soft);font-style:italic;margin-bottom:2.2rem;">Vollständige Kriterien im Prüfplan (Protokollversion gemäß Ethikvotum). Kontaktieren Sie die Studienkoordination für aktuelle Protokolldokumente.</p>
+
+   
+    <!-- ══ T-PORT NOTE ════════════════════════════ -->
+    <div style="background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:10px;padding:1.4rem 1.6rem;margin-bottom:2.2rem;">
+      <p style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem;">Zugangssystem: JET-PEG &amp; T-Port</p>
+      <p style="font-size:.88rem;line-height:1.75;color:var(--text-mid);">
+        Die jejunale Applikation kann konventionell via PEG-J oder — seit März 2026 erstmals in Deutschland verfügbar —
+        über das <strong>T-Port</strong>-System erfolgen. Skandinavische Real-World-Daten weisen auf höheren
+        Alltagskomfort und reduzierte Hardware-Komplikationsraten hin. Beide Zugangswege sind im Studienprotokoll
+        zugelassen. Weitere Informationen: <a href="#" onclick="showPage('tport')" style="color:var(--accent);font-weight:600;">T-Port-Seite</a>.
+      </p>
+    </div>
+
+    <!-- ══ REGISTRATION + CONTACT ════════════════ -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2.5rem;">
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;">
+        <p style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.9rem;">Studienregistrierung</p>
+        <table style="width:100%;border-collapse:collapse;font-size:.85rem;">
+          <tr>
+            <td style="padding:.4rem 1rem .4rem 0;color:var(--text-soft);">EU CT Nr.</td>
+            <td style="padding:.4rem 0;color:var(--text);font-weight:500;">2025-521048-39-00</td>
+          </tr>
+          <tr style="border-top:1px solid var(--border);">
+            <td style="padding:.4rem 1rem .4rem 0;color:var(--text-soft);">ClinicalTrials.gov</td>
+            <td style="padding:.4rem 0;color:var(--text);font-weight:500;">NCT07151378</td>
+          </tr>
+          <tr style="border-top:1px solid var(--border);">
+            <td style="padding:.4rem 1rem .4rem 0;color:var(--text-soft);">Sponsor</td>
+            <td style="padding:.4rem 0;color:var(--text);font-weight:500;">STADAPHARM GmbH, Bad Vilbel</td>
+          </tr>
+        </table>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;">
+        <p style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.9rem;">Studienleitung / Kontakt</p>
+        <p style="font-size:.85rem;line-height:1.75;color:var(--text-mid);">
+          <strong style="color:var(--text);">Prof. Dr. med. Daniel Weiß</strong> (PI)<br/>
+          <strong style="color:var(--text);">Dr. med. Idil Cebi</strong> (Koordination)<br/><br/>
+          Neurologische Klinik · UKT<br/>
+          Hoppe-Seyler-Str. 3 · 72076 Tübingen<br/>
+          <a href="#" onclick="showPage('kontakt')" style="color:var(--accent);font-weight:600;font-size:.83rem;">→ Kontaktformular</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Back button -->
+    <button class="btn-back" onclick="showPage('home')">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+        <line x1="19" y1="12" x2="5" y2="12"/>
+        <polyline points="12 19 5 12 12 5"/>
+      </svg>
+      Zurück zur Startseite
+    </button>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- PAGE: KONTAKT                                   -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="page" id="page-kontakt">
+  <div class="kontakt-wrap">
+    <p class="page-label">Kontakt</p>
+    <h1>Kontakt</h1>
+    <p class="kontakt-lead">
+      Nutzen Sie dieses Formular, um uns eine Nachricht zu senden.
+      Wir melden uns bei Ihnen sobald wie möglich.
+    </p>
+
+    <div id="kontakt-form">
+      <div class="form-row">
+        <!-- Vorname -->
+        <div class="field">
+          <label for="vorname">Vorname <span class="req">*</span></label>
+          <input type="text" id="vorname" placeholder="Max" autocomplete="given-name" />
+          <span class="error-msg" id="err-vorname">Bitte geben Sie Ihren Vornamen ein.</span>
+        </div>
+        <!-- Nachname -->
+        <div class="field">
+          <label for="nachname">Nachname <span class="req">*</span></label>
+          <input type="text" id="nachname" placeholder="Mustermann" autocomplete="family-name" />
+          <span class="error-msg" id="err-nachname">Bitte geben Sie Ihren Nachnamen ein.</span>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <!-- Geburtsdatum -->
+        <div class="field">
+          <label for="geburtsdatum">Geburtsdatum <span class="opt">(optional)</span></label>
+          <input type="date" id="geburtsdatum" />
+        </div>
+        <!-- E-Mail -->
+        <div class="field">
+          <label for="email">E-Mail-Adresse <span class="req">*</span></label>
+          <input type="email" id="email" placeholder="max@beispiel.de" autocomplete="email" />
+          <span class="error-msg" id="err-email">Bitte geben Sie eine gültige E-Mail-Adresse ein.</span>
+        </div>
+      </div>
+
+      <!-- Nachricht -->
+      <div class="field">
+        <label for="nachricht">Nachricht <span class="req">*</span></label>
+        <textarea id="nachricht" placeholder="Ihre Nachricht an uns …"></textarea>
+        <span class="error-msg" id="err-nachricht">Bitte geben Sie Ihre Nachricht ein.</span>
+      </div>
+
+      <button class="btn-send" onclick="sendMail()">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+          <line x1="22" y1="2" x2="11" y2="13"/>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+        </svg>
+        Nachricht senden
+      </button>
+    </div>
+
+    <!-- Back button -->
+    <button class="btn-back" onclick="showPage('home')">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+        <line x1="19" y1="12" x2="5" y2="12"/>
+        <polyline points="12 19 5 12 12 5"/>
+      </svg>
+      Zurück zur Startseite
+    </button>
+  </div>
+</div><!-- /page-kontakt -->
+
+<!-- ── FOOTER ──────────────────────────────────────── -->
+<footer>
+  © 2026 INITIATE-LECIG · Universitätsklinikum Tübingen – Zentrum für Neurologie
+</footer>
+
+<!-- ── SCRIPTS ─────────────────────────────────────── -->
+<script>
+  const pages = ['home','tport','patienten','aerzte','kontakt'];
+  const btnIds = {
+    home:      'btn-home',
+    tport:     'btn-tport',
+    patienten: 'btn-patienten',
+    aerzte:    'btn-aerzte',
+    kontakt:   'btn-kontakt'
+  };
+
+  function showPage(id) {
+    pages.forEach(p => {
+      document.getElementById('page-' + p).classList.remove('visible');
+      document.getElementById(btnIds[p]).classList.remove('active');
+    });
+    document.getElementById('page-' + id).classList.add('visible');
+    document.getElementById(btnIds[id]).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  /* ── Form validation & mailto ── */
+  function sendMail() {
+    let valid = true;
+
+    const fields = [
+      { id: 'vorname',  errId: 'err-vorname',  check: v => v.trim() !== '' },
+      { id: 'nachname', errId: 'err-nachname', check: v => v.trim() !== '' },
+      { id: 'email',    errId: 'err-email',    check: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) },
+      { id: 'nachricht',errId: 'err-nachricht',check: v => v.trim() !== '' },
+    ];
+
+    fields.forEach(({ id, errId, check }) => {
+      const el  = document.getElementById(id);
+      const err = document.getElementById(errId);
+      if (!check(el.value)) {
+        el.classList.add('error');
+        err.classList.add('visible');
+        valid = false;
+      } else {
+        el.classList.remove('error');
+        err.classList.remove('visible');
+      }
+    });
+
+    // Live-clear errors on input
+    fields.forEach(({ id, errId, check }) => {
+      document.getElementById(id).addEventListener('input', function () {
+        if (check(this.value)) {
+          this.classList.remove('error');
+          document.getElementById(errId).classList.remove('visible');
+        }
+      }, { once: false });
+    });
+
+    if (!valid) return;
+
+    const vorname    = document.getElementById('vorname').value.trim();
+    const nachname   = document.getElementById('nachname').value.trim();
+    const geburt     = document.getElementById('geburtsdatum').value;
+    const email      = document.getElementById('email').value.trim();
+    const nachricht  = document.getElementById('nachricht').value.trim();
+
+    const subject = encodeURIComponent(`INITIATE-LECIG Anfrage – ${vorname} ${nachname}`);
+
+    let body = `Vorname: ${vorname}\nNachname: ${nachname}\n`;
+    if (geburt) body += `Geburtsdatum: ${geburt}\n`;
+    body += `E-Mail: ${email}\n\nNachricht:\n${nachricht}`;
+
+    window.location.href =
+      `mailto:Idil.Cebi@med.uni-tuebingen.de?subject=${subject}&body=${encodeURIComponent(body)}`;
+  }
+</script>
+</body>
+</html>
