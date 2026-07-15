@@ -1584,6 +1584,12 @@
         </div>
       </div>
 
+      <!-- Telefonnummer -->
+      <div class="field">
+        <label for="telefon">Telefonnummer <span class="opt">(optional)</span></label>
+        <input type="tel" id="telefon" autocomplete="tel" />
+      </div>
+
       <!-- Nachricht -->
       <div class="field">
         <label for="nachricht">Nachricht <span class="req">*</span></label>
@@ -1679,13 +1685,16 @@
     const nachname   = document.getElementById('nachname').value.trim();
     const geburt     = document.getElementById('geburtsdatum').value;
     const email      = document.getElementById('email').value.trim();
+    const telefon    = document.getElementById('telefon').value.trim();
     const nachricht  = document.getElementById('nachricht').value.trim();
 
     const subject = encodeURIComponent(`INITIATE-LECIG Anfrage – ${vorname} ${nachname}`);
 
     let body = `Vorname: ${vorname}\nNachname: ${nachname}\n`;
     if (geburt) body += `Geburtsdatum: ${geburt}\n`;
-    body += `E-Mail: ${email}\n\nNachricht:\n${nachricht}`;
+    body += `E-Mail: ${email}\n`;
+    if (telefon) body += `Telefon: ${telefon}\n`;
+    body += `\nNachricht:\n${nachricht}`;
 
     window.location.href =
       `mailto:Idil.Cebi@med.uni-tuebingen.de?subject=${subject}&body=${encodeURIComponent(body)}`;
